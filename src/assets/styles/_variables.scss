@@ -1,0 +1,46 @@
+@font-face {
+    font-family: pacifico;
+    src: url("../fonts/Pacifico-Regular.ttf");
+}
+
+@font-face {
+    font-family: lora;
+    src: url("../fonts/Lora-Regular.ttf");
+}
+
+@font-face {
+    font-family: lora-bold;
+    src: url("../fonts/Lora-Bold.ttf");
+}
+
+@font-face {
+    font-family: lora-semibold;
+    src: url("../fonts/Lora-SemiBold.ttf");
+}
+
+$colors: (
+
+    "primary": #B92BB3,
+    "primaryLight": #E3AAE1,
+    "secondary": #EBC9EA,
+    "tetiary": #FFF1FE,
+    "default": black,
+
+
+);
+
+$measurements: (
+
+    "headerHeight": 80px,
+    "headerFontSize": 1.6rem,
+    "subHeaderFontSize": 1.3rem,
+
+);
+
+@function getColor($value){
+    @return map-get($colors, $value);
+}
+
+@function getMeasurement($value){
+    @return map-get($measurements $value);
+}
