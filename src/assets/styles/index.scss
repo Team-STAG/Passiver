@@ -6,6 +6,7 @@ body{
     height: auto;
     min-height: 100vh;
     max-width: 1600px;
+    font-family: lora;
 
     .header{
         width: 100%;
@@ -28,6 +29,7 @@ body{
                     a{
                         font-size: 2rem;
                         font-family: pacifico;
+                        color: getColor("default");
                     }
                 }
 
@@ -76,6 +78,81 @@ body{
                     }
                 }
 
+            }
+        }
+    }
+
+    .landing-page-container{
+        width: 100%;
+        height: auto;
+        min-height: 100vh;
+        padding-top: getMeasurement("headerHeight");
+    }
+
+    .footer{
+        padding: 50px 0px;
+        background: getColor("primaryLight");
+
+        .footer-container{
+
+            .footer-logo{
+
+                h1{
+
+                    a{
+                        color: getColor("default");
+                        font-family: pacifico;
+                        font-size: 3rem;
+                    }
+                }
+
+                p{
+                    font-weight: bold;
+                }
+            }
+
+            .footer-link{
+
+                .link-title{
+                    font-size: getMeasurement("subHeaderFontSize");
+                    font-weight: bold;
+                }
+
+                a{
+                    color: black;
+                    font-size: 1.1rem;
+                }
+                
+                p{
+                    font-size: 1.1rem;
+
+                }
+
+                .page-link{
+                    list-style: none;
+
+                    li{
+
+                        &:not(:first-child){
+                            margin-top: 10px;
+                        }
+                    }
+                }
+
+                .social-links{
+                    display: flex;
+                    list-style: none;
+
+                    li{
+                        &:not(:first-child){
+                            margin-left: 10px;
+                        }
+                    }
+
+                    a{
+                        font-size: 2rem;
+                    }
+                }
             }
         }
     }

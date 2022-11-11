@@ -15,7 +15,7 @@
   src: url("../fonts/Lora-SemiBold.ttf");
 }
 html {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 * {
@@ -52,6 +52,7 @@ body {
   height: auto;
   min-height: 100vh;
   max-width: 1600px;
+  font-family: lora;
 }
 body .header {
   width: 100%;
@@ -70,6 +71,7 @@ body .header .header-container .header-content {
 body .header .header-container .header-content .logo a {
   font-size: 2rem;
   font-family: pacifico;
+  color: black;
 }
 body .header .header-container .header-content .desktop-link ul {
   display: flex;
@@ -96,4 +98,49 @@ body .header .header-container .header-content .desktop-link ul li.bordered-link
 body .header .header-container .header-content .desktop-link ul li.background-link a {
   background: #B92BB3;
   color: white;
+}
+body .landing-page-container {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+body .footer {
+  padding: 50px 0px;
+  background: #E3AAE1;
+}
+body .footer .footer-container .footer-logo h1 a {
+  color: black;
+  font-family: pacifico;
+  font-size: 3rem;
+}
+body .footer .footer-container .footer-logo p {
+  font-weight: bold;
+}
+body .footer .footer-container .footer-link .link-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+body .footer .footer-container .footer-link a {
+  color: black;
+  font-size: 1.1rem;
+}
+body .footer .footer-container .footer-link p {
+  font-size: 1.1rem;
+}
+body .footer .footer-container .footer-link .page-link {
+  list-style: none;
+}
+body .footer .footer-container .footer-link .page-link li:not(:first-child) {
+  margin-top: 10px;
+}
+body .footer .footer-container .footer-link .social-links {
+  display: flex;
+  list-style: none;
+}
+body .footer .footer-container .footer-link .social-links li:not(:first-child) {
+  margin-left: 10px;
+}
+body .footer .footer-container .footer-link .social-links a {
+  font-size: 2rem;
 }/*# sourceMappingURL=index.css.map */
