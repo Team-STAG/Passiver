@@ -53,6 +53,47 @@ body {
   min-height: 100vh;
   max-width: 1600px;
 }
-body header {
+body .header {
+  width: 100%;
+  height: 80px;
+  align-items: center;
+  background: #EBC9EA;
+  position: fixed;
+}
+body .header .header-container {
+  height: 100%;
+}
+body .header .header-container .header-content {
+  height: 100%;
+  align-items: center;
+}
+body .header .header-container .header-content .logo a {
+  font-size: 2rem;
+  font-family: pacifico;
+}
+body .header .header-container .header-content .desktop-link ul {
   display: flex;
+  list-style: none;
+  align-items: center;
+}
+body .header .header-container .header-content .desktop-link ul li:not(:first-child) {
+  margin-left: 80px;
+}
+body .header .header-container .header-content .desktop-link ul li a {
+  color: #220021;
+}
+body .header .header-container .header-content .desktop-link ul li.bordered-link a {
+  border: 2px solid #B92BB3;
+  padding: 7px 20px;
+  display: inline-flex;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  color: #B92BB3;
+}
+body .header .header-container .header-content .desktop-link ul li.background-link a {
+  background: #B92BB3;
+  color: white;
 }/*# sourceMappingURL=index.css.map */

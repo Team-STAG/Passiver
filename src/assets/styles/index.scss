@@ -7,11 +7,77 @@ body{
     min-height: 100vh;
     max-width: 1600px;
 
-    header{
+    .header{
         width: 100%;
         height: getMeasurement("headerHeight");
-        display: flex;
         align-items: center;
+        background: getColor("secondary");
+        position: fixed;
+        // border: 1px solid red;
+
+        .header-container{
+            height: 100%;
+
+            .header-content{
+                height: 100%;
+                align-items: center;
+                // border: 1px solid red;
+
+                .logo{
+
+                    a{
+                        font-size: 2rem;
+                        font-family: pacifico;
+                    }
+                }
+
+                .desktop-link{
+
+                    ul{
+                        display: flex;
+                        list-style: none;
+                        align-items: center;
+
+                        li{
+
+                            &:not(:first-child){
+                                margin-left: 80px;
+                            }
+
+                            a{
+                                color: getColor("defaultTwo");
+                            }
+
+                            &.bordered-link{
+                                
+                                a{
+                                    border: 2px solid getColor("primary");
+                                    padding: 7px 20px;
+                                    display: inline-flex;
+                                    border-radius: 5px;
+                                    -webkit-border-radius: 5px;
+                                    -moz-border-radius: 5px;
+                                    -ms-border-radius: 5px;
+                                    -o-border-radius: 5px;
+                                    color: getColor("primary");
+
+                                }
+                            }
+
+                            &.background-link{
+                                
+                                a{
+                                    background: getColor("primary");
+                                    color: white;
+
+                                }
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
     }
 
 }

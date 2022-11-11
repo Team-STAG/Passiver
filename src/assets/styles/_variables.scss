@@ -25,6 +25,7 @@ $colors: (
     "secondary": #EBC9EA,
     "tetiary": #FFF1FE,
     "default": black,
+    "defaultTwo": #220021,
 
 
 );
@@ -42,5 +43,5 @@ $measurements: (
 }
 
 @function getMeasurement($value){
-    @return map-get($measurements $value);
+    @return map-get($measurements, $value);
 }

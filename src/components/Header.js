@@ -1,3 +1,4 @@
+import { Col, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 
@@ -5,29 +6,37 @@ const Header = () => {
   return (
     <>
     
-        <header>
+        <Row justify="center" className='header'>
 
-            <div className='logo'>
-                <Link to="/">Passivers</Link>
-            </div>
+            <Col span={22} className="header-container">
 
-            <div className='desktop-link'>
+                <Row justify="space-between" className='header-content'>
 
-                <ul className='link-container'>
+                    <div className='logo'>
+                        <Link to="/">Passivers</Link>
+                    </div>
 
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li className="bordered-link"><Link to="/login">Login</Link></li>
-                    <li className="bordered-link background"><Link to="/signup">Signup</Link></li>
+                    <div className='desktop-link'>
 
-                </ul>
+                        <ul className='link-container'>
 
-            </div>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#about">About Us</a></li>
+                            <li className="bordered-link"><Link to="/login">Login</Link></li>
+                            <li className="bordered-link background-link"><Link to="/signup">Signup</Link></li>
+
+                        </ul>
+
+                    </div>
+
+                </Row>
 
 
+            </Col>
 
-        </header>
+
+        </Row>
 
     </>
   )
