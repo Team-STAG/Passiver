@@ -1,0 +1,109 @@
+@import "./styles";
+@import "./variables";
+
+.landing-page-banner{
+    width: 100%;
+    height: calc(100vh - getMeasurement("headerHeight"));
+    background: url("../images/landing_page_banner.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 547px;
+    background-attachment: fixed;
+    align-items: center;
+
+    .landing-page-banner-content{
+
+        h1{
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 0px;
+
+            .colored{
+                color: getColor("primary");
+            }
+        }
+
+        p{
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+
+        button{
+            font-size: 1.3rem;
+            background: getColor("primary");
+            padding: 10px 20px;
+            height: auto;
+            width: auto;
+            color: white;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+    }
+
+}
+
+.landing-page-reasons{
+    
+    padding: 50px 0px;
+    position: relative;
+    margin-top: -120px;
+    
+    &::after{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 50%;
+        bottom: 0px;
+        left: 0px;
+        background: getColor("primary");
+        z-index: -1;
+    }
+
+    .reason-card{
+        padding: 20px;
+        background: getColor("tetiary");
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+
+        h3{
+            font-weight: bold;
+            font-size: getMeasurement("subHeaderFontSize");
+        }
+}
+
+}
+
+.landing-page-about{
+    padding: getMeasurement("defaultPadding") 0px;
+
+    .about-header{
+        text-align: center;
+        font-weight: bold;
+        font-size: getMeasurement("headerFontSize");
+        margin-bottom: 50px;
+    }
+
+    .about-content{
+        margin-top: 60px;
+        align-items: center;
+
+        h3{
+            font-size: getMeasurement("subHeaderFontSize");
+            font-weight: bold;
+        }
+    }
+}
+
+.landing-page-ad{
+    background: url("../images//nigerian_naira.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 50px 0px;
+}
+

@@ -1,1 +1,138 @@
-/*# sourceMappingURL=landingpage.css.map */
+html {
+  font-size: 16px;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: lora;
+  src: url("../fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: lora-bold;
+  src: url("../fonts/Lora-Bold.ttf");
+}
+@font-face {
+  font-family: lora-semibold;
+  src: url("../fonts/Lora-SemiBold.ttf");
+}
+.landing-page-banner {
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: url("../images/landing_page_banner.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 547px;
+  background-attachment: fixed;
+  align-items: center;
+}
+.landing-page-banner .landing-page-banner-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0px;
+}
+.landing-page-banner .landing-page-banner-content h1 .colored {
+  color: #B92BB3;
+}
+.landing-page-banner .landing-page-banner-content p {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+.landing-page-banner .landing-page-banner-content button {
+  font-size: 1.3rem;
+  background: #B92BB3;
+  padding: 10px 20px;
+  height: auto;
+  width: auto;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.landing-page-reasons {
+  padding: 50px 0px;
+  position: relative;
+  margin-top: -120px;
+}
+.landing-page-reasons::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 50%;
+  bottom: 0px;
+  left: 0px;
+  background: #B92BB3;
+  z-index: -1;
+}
+.landing-page-reasons .reason-card {
+  padding: 20px;
+  background: #FFF1FE;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.landing-page-reasons .reason-card h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+.landing-page-about {
+  padding: 100px 0px;
+}
+.landing-page-about .about-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin-bottom: 50px;
+}
+.landing-page-about .about-content {
+  margin-top: 60px;
+  align-items: center;
+}
+.landing-page-about .about-content h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.landing-page-ad {
+  background: url("../images//nigerian_naira.png") no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0px;
+}/*# sourceMappingURL=landingpage.css.map */

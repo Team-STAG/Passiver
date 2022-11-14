@@ -7,6 +7,7 @@ body{
     min-height: 100vh;
     max-width: 1600px;
     font-family: lora;
+    color: getColor("default");
 
     .header{
         width: 100%;
@@ -14,7 +15,14 @@ body{
         align-items: center;
         background: getColor("secondary");
         position: fixed;
-        // border: 1px solid red;
+        z-index: 999;
+        left: 50%;
+        transform: translateX(-50%);
+        //border: 1px solid red;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
 
         .header-container{
             height: 100%;
@@ -48,6 +56,7 @@ body{
 
                             a{
                                 color: getColor("defaultTwo");
+                                font-weight: bold;
                             }
 
                             &.bordered-link{

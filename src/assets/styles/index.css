@@ -53,6 +53,7 @@ body {
   min-height: 100vh;
   max-width: 1600px;
   font-family: lora;
+  color: black;
 }
 body .header {
   width: 100%;
@@ -60,6 +61,13 @@ body .header {
   align-items: center;
   background: #EBC9EA;
   position: fixed;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
 }
 body .header .header-container {
   height: 100%;
@@ -83,6 +91,7 @@ body .header .header-container .header-content .desktop-link ul li:not(:first-ch
 }
 body .header .header-container .header-content .desktop-link ul li a {
   color: #220021;
+  font-weight: bold;
 }
 body .header .header-container .header-content .desktop-link ul li.bordered-link a {
   border: 2px solid #B92BB3;
