@@ -126,14 +126,14 @@ const LandingPage = () => {
             <Row justify="center" className="landing-page-ad">
                 <Col span={22}>
 
-                    <Row justify="space-between">
+                    <Row justify="space-between" className="ad-content">
                         <Col span={15} className="add-text">
 
                             <h3>Register and start <span className='colored'>EARNING</span> now!</h3>
 
 
                         </Col>
-                        <Col span={7} className="add-button">
+                        <Col span={7} className="ad-button">
 
                             <Link to="/signup" className="button">Sign up</Link>
 

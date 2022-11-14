@@ -135,4 +135,22 @@ a {
   background-size: cover;
   background-position: center;
   padding: 50px 0px;
+}
+.landing-page-ad .ad-content {
+  align-items: center;
+}
+.landing-page-ad .ad-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.landing-page-ad h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.landing-page-ad h3 .colored {
+  color: #B92BB3;
+}
+.landing-page-ad .button {
+  background: #B92BB3;
+  color: white;
 }/*# sourceMappingURL=landingpage.css.map */

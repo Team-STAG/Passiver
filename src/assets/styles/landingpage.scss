@@ -105,5 +105,28 @@
     background-size: cover;
     background-position: center;
     padding: 50px 0px;
+
+    .ad-content{
+        align-items: center;
+    }
+
+    .ad-button{
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    h3{
+        font-weight: bold;
+        font-size: getMeasurement("subHeaderFontSize");
+
+        .colored{
+            color: getColor("primary");
+        }
+    }
+
+    .button{
+        background: getColor("primary");
+        color: white;
+    }
 }
 
