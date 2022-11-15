@@ -98,6 +98,30 @@ a {
 .subscription-content table tbody tr td .withdraw-button:focus, .subscription-content table tbody tr td .withdraw-button:hover {
   border: none;
 }
+.subscription-content table tbody tr td .status {
+  padding: 5px 10px;
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.subscription-content table tbody tr td .success {
+  background: rgba(0, 255, 0, 0.1);
+  color: rgba(0, 200, 0, 0.5);
+}
+.subscription-content table tbody tr td .pending {
+  background: rgba(200, 255, 0, 0.4);
+  color: rgba(200, 200, 0, 0.9);
+}
+.subscription-content table tbody tr td .failed {
+  background: rgba(255, 0, 0, 0.1);
+  color: rgba(255, 0, 0, 0.5);
+}
 
 .subscription-header-content {
   align-items: center;
