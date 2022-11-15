@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Dashboard, ErrorPage, LandingPage, Subscription, Transaction, Users } from "./pages";
+import { Dashboard, ErrorPage, LandingPage, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 
 
 function App() {
@@ -63,6 +63,30 @@ function App() {
             {
               path: "transactions",
               element: <Transaction />
+
+            },
+
+            {
+              path: "setting",
+              element: <Settings />
+
+            },
+
+            {
+              path: "settings",
+              element: <Settings />
+
+            },
+
+            {
+              path: "package",
+              element: <Packages />
+
+            },
+
+            {
+              path: "packages",
+              element: <Packages />
 
             }
 

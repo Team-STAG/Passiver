@@ -32,7 +32,7 @@ const Transaction = () => {
                 <tbody>
 
                     {/* <tr>
-                        <td colspan="20" className="empty-data">No Purchased plan Yet</td>
+                        <td colspan="20" className="empty-data">No Transactions Yet</td>
                     </tr> */}
 
                     <tr>
