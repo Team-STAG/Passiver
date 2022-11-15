@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Dashboard, ErrorPage, LandingPage, Users } from "./pages";
+import { Dashboard, ErrorPage, LandingPage, Subscription, Users } from "./pages";
 
 
 function App() {
@@ -39,6 +39,18 @@ function App() {
             {
               path: "dashboard",
               element: <Dashboard />
+
+            },
+
+            {
+              path: "subscription",
+              element: <Subscription />
+
+            },
+
+            {
+              path: "subscriptions",
+              element: <Subscription />
 
             }
 
