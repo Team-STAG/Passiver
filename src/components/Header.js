@@ -1,11 +1,22 @@
 import { Button, Col, Row } from 'antd'
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { MdClose } from "react-icons/md"
 import { FaBars } from "react-icons/fa"
+import Modal from './Modal'
+import MobileLinks from './MobileLinks'
 
 const Header = () => {
     const [isOpened, setIsOpened] = useState(false)
+    const location = useLocation();
+
+    useEffect(() => {
+
+        setIsOpened(false)
+
+
+    
+    }, [location])
   return (
     <>
     
@@ -23,9 +34,9 @@ const Header = () => {
 
                         <ul className='link-container'>
 
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#contact">Contact Us</a></li>
-                            <li><a href="#about">About Us</a></li>
+                            <li>{location.pathname === "/"? <a href='#home'>Home</a>: <Link to="/#home">Home</Link>}</li>
+                            <li>{location.pathname === "/"? <a href='#about'>About Us</a>: <Link to="/#about">About us</Link>}</li>
+                            <li>{location.pathname === "/"? <a href='#contact'>Contact Us</a>: <Link to="/#contact">Contact Us</Link>}</li>
                             <li className="bordered-link"><Link to="/login">Login</Link></li>
                             <li className="bordered-link background-link"><Link to="/signup">Signup</Link></li>
 
@@ -46,6 +57,12 @@ const Header = () => {
 
 
         </Row>
+
+        <Modal opened={isOpened}>
+
+            <MobileLinks isOpened={isOpened} setIsOpened={setIsOpened} />
+
+        </Modal>
 
     </>
   )

@@ -16,7 +16,7 @@ const LandingPage = () => {
 
         <div className='landing-page-container'>
 
-            <Row justify="space-between" className='landing-page-banner'>
+            <Row justify="space-between" className='landing-page-banner' id="home">
 
                 <Col span={7} push={1} lg={{span: 7}}  md={{span: 10}} sm={{span: 17}} xs={{span: 24}} className="landing-page-banner-content">
                     <h1><span className='colored'>INVEST</span> in your</h1>
@@ -57,7 +57,7 @@ const LandingPage = () => {
 
             </Row>
 
-            <Row justify="center" className="landing-page-about">
+            <Row justify="center" className="landing-page-about" id="about">
 
                 <Col span={22}>
 
@@ -146,7 +146,7 @@ const LandingPage = () => {
                     <h2>Top passivers earners</h2>
 
                     <div className='earners-table'>
-                        
+
                         <table>
 
                             <thead>
@@ -235,7 +235,7 @@ const LandingPage = () => {
 
             </Row>
 
-            <Row justify="center" className="landing-page-ad">
+            <Row justify="center" className="landing-page-ad" id="contact">
                 <Col span={22}>
 
                     <Row justify="space-between" className="ad-content">

@@ -16,6 +16,7 @@
 }
 html {
   font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -168,6 +169,24 @@ body .footer .footer-container .footer-link .social-links li:not(:first-child) {
 }
 body .footer .footer-container .footer-link .social-links a {
   font-size: 2rem;
+}
+body .mobile-links .close-mobile-link-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  border: none;
+  font-size: 1.5rem;
+}
+body .mobile-links .mobile-links-content {
+  margin-top: 50px;
+  list-style: none;
+}
+body .mobile-links .mobile-links-content li a {
+  display: inline-block;
+  padding: 20px 40px;
+  color: black;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 @media only screen and (max-width: 1000px) {
   body .header .header-container .header-content .desktop-link {

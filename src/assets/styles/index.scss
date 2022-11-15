@@ -188,6 +188,36 @@ body{
         }
     }
 
+    .mobile-links{
+        // border: 1px solid red;
+
+        .close-mobile-link-button{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .mobile-links-content{
+            margin-top: 50px;
+            list-style: none;
+
+            li{
+
+                a{
+                    display: inline-block;
+                    padding: 20px 40px;
+                    color: black;
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                }
+            }
+
+        }
+
+    }
+
     @media only screen and (max-width: 1000px){
 
         .header{
