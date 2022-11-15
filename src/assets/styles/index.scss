@@ -87,6 +87,28 @@ body{
                     }
                 }
 
+                .mobile-link-btn{
+                    display: none;
+
+                    button{
+                        padding: 0px;
+                        font-size: 1.5rem;
+                        background: transparent;
+                        border: transparent;
+                        box-shadow: none;
+
+                        &:hover{
+                            color: getColor("default");
+                        }
+
+                        &:focus{
+                            color: getColor("default");
+                        }
+                    }
+
+
+                }
+
             }
         }
     }
@@ -165,6 +187,27 @@ body{
             }
         }
     }
+
+    @media only screen and (max-width: 1000px){
+
+        .header{
+
+            .header-container{
+
+                .header-content{
+
+                    .desktop-link{
+                        display: none;
+                    }
+
+                    .mobile-link-btn{
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+
 
     @media only screen and (max-width: 767px){
         footer{

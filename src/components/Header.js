@@ -1,8 +1,11 @@
-import { Col, Row } from 'antd'
-import React from 'react'
+import { Button, Col, Row } from 'antd'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { MdClose } from "react-icons/md"
+import { FaBars } from "react-icons/fa"
 
 const Header = () => {
+    const [isOpened, setIsOpened] = useState(false)
   return (
     <>
     
@@ -28,6 +31,12 @@ const Header = () => {
 
                         </ul>
 
+                    </div>
+
+                    <div className='mobile-link-btn'>
+                        <Button onClick={()=>{
+                            setIsOpened(prevState => !prevState)
+                        }}>{isOpened? <MdClose /> : <FaBars /> }</Button>
                     </div>
 
                 </Row>
