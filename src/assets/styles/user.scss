@@ -95,6 +95,83 @@
 
         .main-content{
             width: calc(100% - 350px);
+            height: 100%;
+            // border: 1px solid red;
+
+            .main-content-header{
+                width: 100%;
+                height: getMeasurement("headerHeight");
+                background: getColor("tetiary");
+                // border: 1px solid red;
+                display: flex;
+                align-items: center;
+
+                .logged-in-header{
+                    width: 100%;
+                    padding: 0px 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    button{
+                        background: transparent;
+                        font-size: 1.5rem;
+                        border: none;
+                        padding: 0px;
+
+                        &:hover,
+                        &:focus{
+                            color: getColor("default");
+                        }
+
+                        &.mobile-btn{
+                            display: none;
+
+                        }
+                    }
+
+                    .header-actions{
+
+                        button{
+                            font-size: 1.8rem;
+
+                            &:not(:first-child){
+                                margin-left: 30px;
+                            }
+
+                            &.account-btn{
+                                color: getColor("primary");
+                                font-size: 2rem;
+                            }
+                        }
+
+                    }
+                }
+
+            }
+
+            .main-content-outlet{
+                width: 100%;
+                height: calc(100% - getMeasurement("headerHeight"));
+                // border: 1px solid red;
+                padding: 30px;
+                overflow-y: scroll;
+                scrollbar-color: rgba(0, 0, 0, .5);
+                scrollbar-width: thin;
+
+                &::-webkit-scrollbar{
+                    width: 5px;
+                }
+
+                &::-webkit-scrollbar-thumb{
+                    background: rgba(0, 0, 0, .5);
+                }
+
+                &::-webkit-scrollbar-track{
+                    background: rgba(0, 0, 0, .1);
+                }
+
+            }
         }
 
     }

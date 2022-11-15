@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { LoggedInNav } from '../components'
+import { LoggedInHeader, LoggedInNav } from '../components'
 
 //importing styles and image
 import "../assets/styles/user.css"
@@ -22,7 +22,19 @@ const Users = () => {
         </div>
         <div className='main-content'>
 
-          <Outlet />
+          <div className='main-content-header'>
+
+            <LoggedInHeader />
+            
+          </div>
+
+
+          <div className="main-content-outlet">
+
+            <Outlet />
+
+          </div>
+
 
         </div>
 
