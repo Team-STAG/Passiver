@@ -1,0 +1,101 @@
+@import "./variables";
+@import "./styles";
+
+
+.users{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid red;
+
+    .user-container{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .navbar{
+            width: 350px;
+            height: 100%;
+            background: getColor("primaryLight");
+
+            .nav-container{
+                width: 100%;
+                height: 100%;
+
+                .nav-header{
+                    display: flex;
+                    // padding: 30px;
+                    padding: 0px 30px;
+                    height: getMeasurement("headerHeight");
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .logo-text{
+                        font-size: 1.6rem;
+                        font-family: pacifico;
+                        margin-top: -5px;
+                        color: getColor("default");
+                    }
+
+                    .shrink-nav-button{
+                        background: transparent;
+                        border: none;
+                        font-size: 1.5rem;
+                        // margin-top: 10px;
+                        padding: 0px;
+
+                        &:hover,
+                        &:focus{
+                            color: getColor("default");
+                        }
+                    }
+                }
+
+                .nav-links{
+                    width: 100%;
+                    height: calc(100% - getMeasurement("headerHeight"));
+                    // border: 1px solid red;
+                    padding: 30px 0px;
+
+                    ul{
+                        list-style: none;
+
+                        li{
+
+                            a{
+                                width: 100%;
+                                display: inline-flex;
+                                padding: 20px 30px;
+                                font-size: 1.1rem;
+                                color: getColor("default");
+                                align-items: center;
+                                font-weight: bold;
+
+                                .text{
+                                    margin-left: 15px;
+                                }
+                            }
+
+                        }
+
+                        .active-link{
+
+                            a{
+                                background: getColor("primary");
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .main-content{
+            width: calc(100% - 350px);
+        }
+
+    }
+}

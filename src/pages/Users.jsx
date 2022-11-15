@@ -1,10 +1,34 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import { LoggedInNav } from '../components'
+
+//importing styles and image
+import "../assets/styles/user.css"
 
 const Users = () => {
-  return (
-    <div>
 
-      this is hte user pages
+  const [navShrinked, setNavShrink] = useState(false)
+
+  return (
+    <div className='users'>
+
+
+      <div className='user-container'>
+
+        <div className='navbar'>
+
+          <LoggedInNav navShrinked={navShrinked} setNavShrink={setNavShrink}/>
+
+        </div>
+        <div className='main-content'>
+
+          <Outlet />
+
+        </div>
+
+      </div>
+
+      
       
     </div>
   )

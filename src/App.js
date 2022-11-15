@@ -11,9 +11,13 @@ function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <LandingPage />,
       errorElement: <ErrorPage />,
       children: [
+        {
+          index: true,
+          element: <LandingPage />
+        },
+
         {
           path: "home",
           element: <LandingPage />
@@ -23,6 +27,14 @@ function App() {
           path: "account",
           element: <Users />,
           children: [
+
+
+            {
+              index: true,
+              path: "",
+              element: <Dashboard />
+
+            },
 
             {
               path: "dashboard",
