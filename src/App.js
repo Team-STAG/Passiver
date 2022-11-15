@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { ErrorPage, LandingPage } from "./pages";
+import { Dashboard, ErrorPage, LandingPage, Users } from "./pages";
 
 
 function App() {
@@ -17,6 +17,20 @@ function App() {
         {
           path: "home",
           element: <LandingPage />
+        },
+
+        {
+          path: "account",
+          element: <Users />,
+          children: [
+
+            {
+              path: "dashboard",
+              element: <Dashboard />
+
+            }
+
+          ]
         }
 
       ]

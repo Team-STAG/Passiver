@@ -53,7 +53,7 @@ a {
   background: url("../images/landing_page_banner.png") no-repeat;
   background-size: cover;
   background-position: center;
-  min-height: 547px;
+  min-height: 687px;
   background-attachment: fixed;
   align-items: center;
 }
@@ -86,19 +86,10 @@ a {
 .landing-page-reasons {
   padding: 50px 0px;
   position: relative;
-  margin-top: -120px;
-}
-.landing-page-reasons::after {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 50%;
-  bottom: 0px;
-  left: 0px;
   background: #B92BB3;
-  z-index: -1;
 }
 .landing-page-reasons .reason-card {
+  position: relative;
   padding: 20px;
   background: #FFF1FE;
   border-radius: 10px;
@@ -106,6 +97,7 @@ a {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+  margin-top: -120px;
 }
 .landing-page-reasons .reason-card h3 {
   font-weight: bold;
@@ -128,6 +120,9 @@ a {
 .landing-page-about .about-content h3 {
   font-size: 1.3rem;
   font-weight: bold;
+}
+.landing-page-about .about-content .about-image img {
+  width: 100%;
 }
 
 .landing-page-ad {
@@ -182,20 +177,77 @@ a {
   font-weight: bold;
   text-align: center;
 }
-.earners-container table {
+.earners-container .earners-table {
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5);
+}
+.earners-container .earners-table table {
   margin-top: 50px;
   width: 100%;
+  min-width: 600px;
   border-collapse: collapse;
 }
-.earners-container table td {
+.earners-container .earners-table table td {
   padding: 20px;
 }
-.earners-container table thead tr {
+.earners-container .earners-table table thead tr {
   font-weight: bold;
 }
-.earners-container table thead tr:not(:nth-child(even)) {
+.earners-container .earners-table table thead tr:not(:nth-child(even)) {
   background: #EBC9EA;
 }
-.earners-container table tbody tr:nth-child(even) {
+.earners-container .earners-table table tbody tr:nth-child(even) {
   background: #EBC9EA;
+}
+.earners-container .earners-table::-webkit-scrollbar {
+  height: 4px;
+}
+.earners-container .earners-table::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+.earners-container .earners-table::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+@media only screen and (max-width: 767px) {
+  .landing-page-about .about-content {
+    text-align: center;
+  }
+  .landing-page-about .about-content .about-image {
+    margin-top: 20px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .landing-page-banner .landing-page-banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .landing-page-banner .landing-page-banner-content p {
+    max-width: 90%;
+  }
+  .landing-page-reasons .reason-card {
+    margin-top: 0px;
+  }
+  .landing-page-reasons .reason-card:first-child {
+    margin-top: -120px;
+  }
+  .landing-page-reasons .reason-card:not(:first-child) {
+    margin-top: 20px;
+  }
+  .landing-page-ad .ad-content {
+    text-align: center;
+  }
+  .landing-page-ad .ad-content .ad-button {
+    margin-top: 20px;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=landingpage.css.map */

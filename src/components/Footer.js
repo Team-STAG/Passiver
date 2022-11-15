@@ -15,14 +15,14 @@ const Footer = () => {
 
                 <Row justify="space-between">
 
-                    <Col span={9} className="footer-logo">
+                    <Col span={9} md={{span: 9}} xs={{span: 24}} className="footer-logo">
 
                         <h1><Link to="/">{siteName}</Link></h1>
                         <p>...Save your future now</p>
 
                     </Col>
 
-                    <Col span={7} className="footer-link">
+                    <Col span={7} md={{span: 7}} xs={{span: 24}} className="footer-link">
 
                         <h3 className='link-title'>About</h3>
 
@@ -37,7 +37,7 @@ const Footer = () => {
 
                     </Col>
 
-                    <Col span={7} className="footer-link">
+                    <Col span={7} md={{span: 7}} xs={{span: 24}} className="footer-link">
 
                         <h3 className='link-title'>Contact Us</h3>
 

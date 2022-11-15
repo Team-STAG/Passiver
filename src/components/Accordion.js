@@ -22,10 +22,10 @@ const Accordion = ({data, style, ...props}) => {
 
         <Row justify="center" style={{border: "2px solid #EBC9EA", borderRadius: "10px", overflow: "hidden"}} {...props}>
 
-            {sentData.map(data => {
+            {sentData.map((data, index) => {
 
                 return(
-                    <AccordionContents question={data.question} answer={data.answer}/>
+                    <AccordionContents key={index} question={data.question} answer={data.answer}/>
                 )
             })}
 

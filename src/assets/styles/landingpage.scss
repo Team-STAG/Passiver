@@ -7,7 +7,7 @@
     background: url("../images/landing_page_banner.png") no-repeat;
     background-size: cover;
     background-position: center;
-    min-height: 547px;
+    min-height: 687px;
     background-attachment: fixed;
     align-items: center;
 
@@ -49,20 +49,21 @@
     
     padding: 50px 0px;
     position: relative;
-    margin-top: -120px;
+    // margin-top: -120px;
+    background: getColor("primary");
     
-    &::after{
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 50%;
-        bottom: 0px;
-        left: 0px;
-        background: getColor("primary");
-        z-index: -1;
-    }
+    // &::after{
+    //     position: absolute;
+    //     content: "";
+    //     width: 100%;
+    //     height: 50%;
+    //     bottom: 0px;
+    //     left: 0px;
+    //     z-index: -1;
+    // }
 
     .reason-card{
+        position: relative;
         padding: 20px;
         background: getColor("tetiary");
         border-radius: 10px;
@@ -70,12 +71,13 @@
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+        margin-top: -120px;
 
         h3{
             font-weight: bold;
             font-size: getMeasurement("subHeaderFontSize");
         }
-}
+    }
 
 }
 
@@ -96,6 +98,13 @@
         h3{
             font-size: getMeasurement("subHeaderFontSize");
             font-weight: bold;
+        }
+
+        .about-image{
+
+            img{
+                width: 100%;
+            }
         }
     }
 }
@@ -165,43 +174,134 @@
         text-align: center;
     }
 
-    table{
-        margin-top: 50px;
+    .earners-table{
         width: 100%;
-        border-collapse: collapse;
+        overflow-x: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(0, 0, 0, .5);
 
-        td{
-            padding: 20px;
-        }
-
-        
-
-        thead{
-
-            tr{
-
-                font-weight: bold;
-                &:not(:nth-child(even)){
-                    background: getColor('secondary');
-
+        table{
+            margin-top: 50px;
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+    
+            td{
+                padding: 20px;
+            }
+    
+            
+    
+            thead{
+    
+                tr{
+    
+                    font-weight: bold;
+                    &:not(:nth-child(even)){
+                        background: getColor('secondary');
+    
+                    }
+    
                 }
-
+                
             }
             
-        }
-        
-        tbody{
-
-            tr{
-
-                &:nth-child(even){
-                    background: getColor('secondary');
-
+            tbody{
+    
+                tr{
+    
+                    &:nth-child(even){
+                        background: getColor('secondary');
+    
+                    }
                 }
+    
+                
             }
+        }
 
-            
+        &::-webkit-scrollbar{
+            height: 4px;
+        }
+
+        &::-webkit-scrollbar-thumb{
+            background: rgba(0, 0, 0, .5);
+            border-radius: 50px;
+            -webkit-border-radius: 50px;
+            -moz-border-radius: 50px;
+            -ms-border-radius: 50px;
+            -o-border-radius: 50px;
+        }
+
+        &::-webkit-scrollbar-track{
+            background: rgba(0, 0, 0, .1);
         }
     }
+
+}
+
+@media only screen and (max-width: 767px){
+    
+    .landing-page-about{
+
+        .about-content{
+
+            text-align: center;
+
+            .about-image{
+                margin-top: 20px;
+            }
+        }
+
+
+    }
+}
+
+@media only screen and (max-width: 575px){
+
+    .landing-page-banner{
+
+        .landing-page-banner-content{
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            p{
+                max-width: 90%;
+            }
+
+        }
+    }
+
+    .landing-page-reasons{
+
+        .reason-card{
+            margin-top: 0px;
+
+            &:first-child{
+                margin-top: -120px;
+            }
+
+            &:not(:first-child){
+                margin-top: 20px;
+            }
+        }
+
+    }
+
+    .landing-page-ad{
+
+        .ad-content{
+            text-align: center;
+
+            .ad-button{
+                margin-top: 20px;
+                justify-content: center;
+            }
+        }
+    }
+
 }
 

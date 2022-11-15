@@ -18,7 +18,7 @@ const LandingPage = () => {
 
             <Row justify="space-between" className='landing-page-banner'>
 
-                <Col span={7} push={1} className="landing-page-banner-content">
+                <Col span={7} push={1} lg={{span: 7}}  md={{span: 10}} sm={{span: 17}} xs={{span: 24}} className="landing-page-banner-content">
                     <h1><span className='colored'>INVEST</span> in your</h1>
                     <h1>future now</h1>
 
@@ -34,19 +34,19 @@ const LandingPage = () => {
                 <Col span={22}>
 
                     <Row justify="space-between">
-                        <Col span={6} className="reason-card">
+                        <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
                             <h3 className='title'>50% ROI</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
                         </Col>
 
-                        <Col span={6} className="reason-card">
+                        <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
                             <h3 className='title'>50% ROI</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
                         </Col>
 
-                        <Col span={6} className="reason-card">
+                        <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
                             <h3 className='title'>50% ROI</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
@@ -65,13 +65,13 @@ const LandingPage = () => {
 
                     <Row justify="space-between" className="about-content">
 
-                        <Col span={10} className="about-image">
+                        <Col span={10} lg={{span: 10, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 2}} className="about-image">
 
                             <img src={AboutImageOne} alt="" />
 
                         </Col>
 
-                        <Col span={12} className="about-text">
+                        <Col span={12} lg={{span: 12, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 1}} className="about-text">
 
                             <h3>Increased value for money</h3>
 
@@ -83,8 +83,14 @@ const LandingPage = () => {
 
                     <Row justify="space-between" className="about-content">
 
+                        
+                        <Col span={10} lg={{span: 10, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 2}}  className="about-image">
 
-                        <Col span={12} className="about-text">
+                            <img src={AboutImageOne} alt="" />
+
+                        </Col>
+
+                        <Col span={12} lg={{span: 12, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 1}}  className="about-text">
 
                             <h3>Increased value for money</h3>
 
@@ -92,25 +98,18 @@ const LandingPage = () => {
                             
                         </Col>
 
-                        
-                        <Col span={10} className="about-image">
-
-                            <img src={AboutImageOne} alt="" />
-
-                        </Col>
-
                     </Row>  
 
                     <Row justify="space-between" className="about-content">
 
 
-                        <Col span={10} className="about-image">
+                        <Col span={10} lg={{span: 10, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 2}}  className="about-image">
 
                             <img src={AboutImageOne} alt="" />
 
                         </Col>
 
-                        <Col span={12} className="about-text">
+                        <Col span={12} lg={{span: 12, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 1}}  className="about-text">
 
                             <h3>Increased value for money</h3>
 
@@ -146,85 +145,90 @@ const LandingPage = () => {
 
                     <h2>Top passivers earners</h2>
 
-                    <table>
+                    <div className='earners-table'>
+                        
+                        <table>
 
-                        <thead>
-                            <tr>
-                                <td>S/N</td>
-                                <td>Username</td>
-                                <td>Date Started</td>
-                                <td>Price (&#8358;)</td>
-                                <td>Return (&#8358;)</td>
-                            </tr>
-                        </thead>
+                            <thead>
+                                <tr>
+                                    <td>S/N</td>
+                                    <td>Username</td>
+                                    <td>Date Started</td>
+                                    <td>Price (&#8358;)</td>
+                                    <td>Return (&#8358;)</td>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
 
-                             <tr>
-                                <td>1</td>
-                                <td>dasimems</td>
-                                <td>Aug-29-2022</td>
-                                <td>3500</td>
-                                <td>35,500</td>
-                            </tr>
-                        </tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
+                            </tbody>
 
-                    </table>
+                        </table>
+
+                    </div>
+
 
 
                 </Col>
@@ -235,13 +239,13 @@ const LandingPage = () => {
                 <Col span={22}>
 
                     <Row justify="space-between" className="ad-content">
-                        <Col span={15} className="add-text">
+                        <Col span={15} lg={{span: 15}} md={{span: 15}} sm={{span: 15}} xs={{span: 24}} className="add-text">
 
                             <h3>Register and start <span className='colored'>EARNING</span> now!</h3>
 
 
                         </Col>
-                        <Col span={7} className="ad-button">
+                        <Col span={7} lg={{span: 7}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="ad-button">
 
                             <Link to="/signup" className="button">Sign up</Link>
 
