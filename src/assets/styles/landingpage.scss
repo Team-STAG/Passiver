@@ -130,6 +130,31 @@
     }
 }
 
+.landing-page-faq{
+    padding: getMeasurement("defaultPadding") 0px;
+    background: getColor("tetiary");
+
+    .faq-header{
+        text-align: center;
+        font-size: getMeasurement("headerFontSize");
+        font-weight: bold;
+        
+    }
+
+    .faq-subtitle{
+        font-size: 1.2rem;
+        text-align: center;
+        color: rgba(0, 0, 0, .8);
+        margin-top: 30px;
+    }
+
+    .accordion-content{
+        background: white;
+        margin-top: 40px;
+    }
+
+}
+
 .earners-container{
     
     padding: getMeasurement("defaultPadding") 0px;

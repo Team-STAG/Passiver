@@ -155,6 +155,26 @@ a {
   color: white;
 }
 
+.landing-page-faq {
+  padding: 100px 0px;
+  background: #FFF1FE;
+}
+.landing-page-faq .faq-header {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+.landing-page-faq .faq-subtitle {
+  font-size: 1.2rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 30px;
+}
+.landing-page-faq .accordion-content {
+  background: white;
+  margin-top: 40px;
+}
+
 .earners-container {
   padding: 100px 0px;
 }

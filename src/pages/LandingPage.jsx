@@ -5,6 +5,8 @@ import { Footer, Header } from '../components'
 import "../assets/styles/landingpage.css"
 import AboutImageOne from "../assets/images/about_image_one.png"
 import { Link } from 'react-router-dom'
+import Accordion from '../components/Accordion'
+import { SiteData } from '../data'
 
 const LandingPage = () => {
   return (
@@ -127,11 +129,12 @@ const LandingPage = () => {
 
                 <Col span={22}>
 
-                    <h2>Frequently Asked Questions</h2>
+                    <h2 className='faq-header'>Frequently Asked Questions</h2>
 
-                    <p>Below are some common question that comes up in the mind of Passivers investors and the simplest answer to them</p>
+                    <p className="faq-subtitle">Below are some common question that comes up in the mind of Passivers investors and the simplest answer to them</p>
 
-                    
+                    <Accordion data={SiteData.faq} className="accordion-content" />
+
 
                 </Col>
 
