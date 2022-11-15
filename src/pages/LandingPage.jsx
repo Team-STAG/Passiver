@@ -123,6 +123,111 @@ const LandingPage = () => {
 
             </Row>
 
+            <Row justify="center" className="landing-page-faq">
+
+                <Col span={22}>
+
+                    <h2>Frequently Asked Questions</h2>
+
+                    <p>Below are some common question that comes up in the mind of Passivers investors and the simplest answer to them</p>
+
+                    
+
+                </Col>
+
+            </Row>  
+
+            <Row justify="center" className='earners-container'>
+
+                <Col span={22}>
+
+                    <h2>Top passivers earners</h2>
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <td>S/N</td>
+                                <td>Username</td>
+                                <td>Date Started</td>
+                                <td>Price (&#8358;)</td>
+                                <td>Return (&#8358;)</td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+
+                             <tr>
+                                <td>1</td>
+                                <td>dasimems</td>
+                                <td>Aug-29-2022</td>
+                                <td>3500</td>
+                                <td>35,500</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+
+                </Col>
+
+            </Row>
+
             <Row justify="center" className="landing-page-ad">
                 <Col span={22}>
 

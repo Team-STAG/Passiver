@@ -130,3 +130,53 @@
     }
 }
 
+.earners-container{
+    
+    padding: getMeasurement("defaultPadding") 0px;
+
+    h2{
+        font-weight: bold;
+        font-size: getMeasurement("headerFontSze");
+        text-align: center;
+    }
+
+    table{
+        margin-top: 50px;
+        width: 100%;
+        border-collapse: collapse;
+
+        td{
+            padding: 20px;
+        }
+
+        
+
+        thead{
+
+            tr{
+
+                font-weight: bold;
+                &:not(:nth-child(even)){
+                    background: getColor('secondary');
+
+                }
+
+            }
+            
+        }
+        
+        tbody{
+
+            tr{
+
+                &:nth-child(even){
+                    background: getColor('secondary');
+
+                }
+            }
+
+            
+        }
+    }
+}
+
