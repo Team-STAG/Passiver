@@ -125,7 +125,7 @@ body .header .header-container .header-content .mobile-link-btn button:hover {
 body .header .header-container .header-content .mobile-link-btn button:focus {
   color: black;
 }
-body .landing-page-container {
+body .all-page-container {
   width: 100%;
   height: auto;
   min-height: 100vh;

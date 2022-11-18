@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Dashboard, ErrorPage, LandingPage, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { Dashboard, ErrorPage, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 
 
 function App() {
@@ -21,6 +21,11 @@ function App() {
         {
           path: "home",
           element: <LandingPage />
+        },
+
+        {
+          path: "login",
+          element: <Login />
         },
 
         {

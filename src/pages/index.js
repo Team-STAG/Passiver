@@ -6,5 +6,6 @@ import Subscription from "./Subscription";
 import Transaction from "./Transaction";
 import Packages from "./Packages";
 import Settings from "./Settings";
+import Login from "./Login";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login};

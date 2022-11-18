@@ -14,7 +14,7 @@ const LandingPage = () => {
 
         <Header />
 
-        <div className='landing-page-container'>
+        <div className='all-page-container'>
 
             <Row justify="space-between" className='landing-page-banner' id="home">
 
