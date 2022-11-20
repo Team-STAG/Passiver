@@ -1,5 +1,5 @@
-import { Button, Col, Row } from 'antd'
-import React, { useState } from 'react'
+import { Button, Col, message, Row } from 'antd'
+import React, { useCallback, useState } from 'react'
 import { Header } from '../components'
 
 import "../assets/styles/login.css"
@@ -18,7 +18,24 @@ const Login = () => {
         }
     );
 
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
+
+    const loginUser = useCallback(()=>{
+
+        setLoading(true);
+
+        var {email, password} = formState
+
+        if(email !== "" && password !== ""){
+            
+        }else{
+
+            message.error("Please input your username and password!");
+            setLoading(false)
+        }
+
+    }, [formState])
+
   return (
     <>
         <Header />
@@ -28,7 +45,7 @@ const Login = () => {
             
             <Row justify="center" className='login-container'>
 
-                <Col span={20} className="login-content">
+                <Col span={20} lg={{span: 20}} md={{span: 14}} xs={{span: 24}} className="login-content">
 
                     <Row justify="space-between">
 
@@ -45,7 +62,7 @@ const Login = () => {
 
                         </Col>
 
-                        <Col span={12} className="login-form">
+                        <Col span={12} lg={{span: 12}} xs={{span: 24}} className="login-form">
 
                             <h2 className='form-title'>
 
@@ -101,11 +118,11 @@ const Login = () => {
                                 </div>
 
                                 <div className='form-content right'>
-                                    <Link to="reset-password" className='link-text'>Reset Password</Link>
+                                    <Link to="/reset-password" className='link-text'>Reset Password</Link>
                                 </div>
 
                                 <div className='form-content'>
-                                    <Button className='submit-button'>Login <span className='icon'><FaSignInAlt /></span></Button>
+                                    <Button loading={loading} className='submit-button' onClick={loginUser}>Login <span className='icon' ><FaSignInAlt /></span></Button>
                                 </div>
 
                             </div>

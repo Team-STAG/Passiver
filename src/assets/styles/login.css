@@ -125,6 +125,9 @@ a {
   font-size: 1.7rem;
   margin-top: 30px;
 }
+.login-container .login-content .login-form .form-subtitle {
+  text-align: center;
+}
 .login-container .login-content .login-form .form {
   width: 100%;
   margin-top: 50px;
@@ -212,4 +215,9 @@ a {
 }
 .login-container .login-content .login-form .form .right {
   align-items: flex-end;
+}
+@media only screen and (max-width: 991px) {
+  .login-container .login-content .login-image {
+    display: none;
+  }
 }/*# sourceMappingURL=login.css.map */

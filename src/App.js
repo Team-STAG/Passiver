@@ -4,6 +4,7 @@ import {
   RouterProvider
 } from "react-router-dom";
 import { Dashboard, ErrorPage, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import ForgotPassword from "./pages/ForgotPassword";
 
 
 function App() {
@@ -26,6 +27,11 @@ function App() {
         {
           path: "login",
           element: <Login />
+        },
+
+        {
+          path: "reset-password",
+          element: <ForgotPassword />
         },
 
         {

@@ -87,6 +87,10 @@
                 margin-top: 30px;
             }
 
+            .form-subtitle{
+                text-align: center;
+            }
+
             .form{
                 width: 100%;
                 margin-top: 50px;
@@ -194,6 +198,17 @@
                     align-items: flex-end;
                 }
             }
+        }
+    }
+
+    @media only screen and (max-width: 991px){
+
+        .login-content{
+
+            .login-image{
+                display: none;
+            }
+
         }
     }
 }
