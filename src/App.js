@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Dashboard, ErrorPage, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { Confirm, Dashboard, ErrorPage, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -32,6 +32,11 @@ function App() {
         {
           path: "reset-password",
           element: <ForgotPassword />
+        },
+
+        {
+          path: "confirm",
+          element: <Confirm />
         },
 
         {

@@ -4,7 +4,7 @@ import { Header } from '../components'
 
 import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png";
-import { Navigate } from 'react-router-dom';
+import {useNavigate } from 'react-router-dom';
 
 const ForgotPassword = () => {
   const [formState, setFormState] = useState(
@@ -16,7 +16,8 @@ const ForgotPassword = () => {
             passwordVisible: false
         }
     );
-    const [emailSet, setEmailSet] = useState(false)
+
+    const navigate = useNavigate()
     
 
     const [loading, setLoading] = useState(false);
@@ -31,9 +32,9 @@ const ForgotPassword = () => {
             
             setTimeout(()=>{
 
-                setEmailSet(true);
+                navigate(`/confirm?email=${formState.email}`)
 
-            })
+            }, 3000)
 
         }else{
 
@@ -41,15 +42,11 @@ const ForgotPassword = () => {
             setLoading(false)
         }
 
-    }, [formState])
-
-    if(emailSet){
-
-        <Navigate to={`/confirm?email=${formState.email}`} replace={true}/>
-    }
+    }, [formState, navigate])
 
   return (
     <>
+
         <Header />
 
         <div className='all-page-container'>
