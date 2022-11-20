@@ -1,11 +1,13 @@
-import React, { useCallback, useReducer } from 'react'
+import React, { useCallback, useContext, useReducer, useState } from 'react'
 import { initialUserValue, userReducer } from '../reducers';
 
 const UserContext = React.createContext();
 
 export const UserProvider = ({children}) => {
 
-    const [userState, dispatch] = useReducer(userReducer, initialUserValue)
+    const [userState, dispatch] = useReducer(userReducer, initialUserValue);
+    const [passwordReset, setPasswordReset] = useState(false)
+    const [passwordResetEmail, setPasswordResetEmail] = useState("")
 
 
     const addUserDetails = useCallback(()=>{
@@ -17,7 +19,7 @@ export const UserProvider = ({children}) => {
   return (
     <>
 
-        <UserContext.Provider value={{userState, addUserDetails}}>
+        <UserContext.Provider value={{userState, addUserDetails, passwordReset, passwordResetEmail, setPasswordReset, setPasswordResetEmail}}>
             {children}
         </UserContext.Provider>
     
@@ -25,4 +27,9 @@ export const UserProvider = ({children}) => {
   )
 }
 
-export default UserContext
+const useUserContext = () => {
+
+  return useContext(UserContext)
+}
+
+export default useUserContext;

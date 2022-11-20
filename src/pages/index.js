@@ -8,5 +8,6 @@ import Packages from "./Packages";
 import Settings from "./Settings";
 import Login from "./Login";
 import Confirm from "./Confirm";
+import Change from "./Change";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change};
