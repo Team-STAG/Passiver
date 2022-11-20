@@ -1,0 +1,143 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: lora;
+  src: url("../fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: lora-bold;
+  src: url("../fonts/Lora-Bold.ttf");
+}
+@font-face {
+  font-family: lora-semibold;
+  src: url("../fonts/Lora-SemiBold.ttf");
+}
+.investor-content {
+  width: 100%;
+}
+.investor-content:not(:first-child) {
+  margin-top: 40px;
+}
+.investor-content .subscription-header {
+  font-weight: bold;
+}
+.investor-content .user-search .search-box {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  outline: none;
+  padding: 0px 10px;
+}
+.investor-content .user-search .search-box:focus {
+  border: 2px solid rgba(0, 0, 0, 0.5);
+}
+.investor-content .button {
+  background: #B92BB3;
+  color: white;
+}
+.investor-content table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.investor-content table td {
+  padding: 20px;
+}
+.investor-content table td.empty-data {
+  text-align: center;
+  font-weight: bold;
+}
+.investor-content table thead tr:not(:nth-child(even)) {
+  background: #FFF1FE;
+}
+.investor-content table thead td {
+  font-weight: bold;
+}
+.investor-content table tbody tr:nth-child(even) {
+  background: #FFF1FE;
+}
+.investor-content table tbody tr td .withdraw-button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background: #B92BB3;
+  color: white;
+  border: none;
+}
+.investor-content table tbody tr td .withdraw-button:disabled {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+.investor-content table tbody tr td .withdraw-button:focus, .investor-content table tbody tr td .withdraw-button:hover {
+  border: none;
+}
+.investor-content table tbody tr td .status {
+  padding: 5px 10px;
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.investor-content table tbody tr td .success {
+  background: rgba(0, 255, 0, 0.1);
+  color: rgba(0, 200, 0, 0.5);
+}
+.investor-content table tbody tr td .pending {
+  background: rgba(200, 255, 0, 0.4);
+  color: rgba(200, 200, 0, 0.9);
+}
+.investor-content table tbody tr td .failed {
+  background: rgba(255, 0, 0, 0.1);
+  color: rgba(255, 0, 0, 0.5);
+}
+
+.subscription-header-content {
+  align-items: center;
+}/*# sourceMappingURL=investors.css.map */

@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Change, Confirm, Dashboard, ErrorPage, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { Change, Confirm, Dashboard, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -110,7 +110,15 @@ function App() {
               path: "packages",
               element: <Packages />
 
-            }
+            },
+
+            {
+              path: "users",
+              element: <Investors />
+
+            },
+
+            
 
           ]
         }

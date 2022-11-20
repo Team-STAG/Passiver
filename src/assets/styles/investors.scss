@@ -1,0 +1,136 @@
+@import "./styles";
+@import "./variables";
+
+.investor-content{
+    width: 100%;
+
+    &:not(:first-child){
+        margin-top: 40px;
+    }
+
+    .subscription-header{
+        font-weight: bold;
+    }
+
+    .user-search{
+        .search-box{
+            width: 400px;
+            height: 50px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+            border: 2px solid rgba(0, 0, 0, .2);
+            outline: none;
+            padding: 0px 10px;
+
+            &:focus{
+                border: 2px solid rgba(0, 0, 0, .5);
+            }
+}
+    }
+
+    .button{
+        background: getColor("primary");
+        color: white;
+    }
+
+    table{
+        width: 100%;
+        border-collapse: collapse;
+
+        td{
+            padding: 20px;
+
+            &.empty-data{
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+
+        thead{
+            tr{
+
+                &:not(:nth-child(even)){
+
+                    background: getColor("tetiary");
+                }
+            }
+
+            td{
+                font-weight: bold;
+            }
+        }
+
+        tbody{
+
+            tr{
+
+                &:nth-child(even){
+
+                    background: getColor("tetiary");
+                }
+
+                td{
+
+                    .withdraw-button{
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -ms-border-radius: 5px;
+                        -o-border-radius: 5px;
+                        background: getColor("primary");
+                        color: white;
+                        border: none;
+
+                        &:disabled{
+                            background: rgba(0, 0, 0, .1);
+                            color: rgba(0, 0, 0, .5);
+                        }
+
+                        &:focus,
+                        &:hover{
+                            border: none;
+                        }
+                    }
+
+                    .status{
+                        padding: 5px 10px;
+                        display: inline-flex;
+                        background: rgba(0, 0, 0, .1);
+                        color: rgba(0, 0, 0, .5);
+                        font-weight: bold;
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -ms-border-radius: 5px;
+                        -o-border-radius: 5px;
+                    }
+
+                    .success{
+                        background: rgba(0, 255, 0, .1);
+                        color: rgba(0, 200, 0, .5);
+
+                    }
+
+                    .pending{
+                        background: rgba(200, 255, 0, .4);
+                        color: rgba(200, 200, 0, .9);
+
+                    }
+
+                    .failed{
+                        background: rgba(255, 0, 0, .1);
+                        color: rgba(255, 0, 0, .5);
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+.subscription-header-content{
+    align-items: center;
+}

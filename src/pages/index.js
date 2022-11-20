@@ -9,5 +9,6 @@ import Settings from "./Settings";
 import Login from "./Login";
 import Confirm from "./Confirm";
 import Change from "./Change";
+import Investors from "./Investors";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors};
