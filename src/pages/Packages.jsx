@@ -45,7 +45,9 @@ const Packages = () => {
                 
                 <div className="action-btn">
 
-                  <Button className="edit-button"><FaPen /></Button>
+                  <Button className="edit-button" onClick={()=>{
+                    navigate("/account/packages/edit/packageId");
+                  }}><FaPen /></Button>
                   <Button className="delete-button"><FaTrash /></Button>
 
                 </div>
@@ -64,8 +66,8 @@ const Packages = () => {
                 
                 <div className="action-btn">
 
-                  <Button className="edit-button" onClickCapture={()=>{
-                    navigate("/packages/edit/packageId");
+                  <Button className="edit-button" onClick={()=>{
+                    navigate("/account/packages/edit/packageId");
                   }}><FaPen /></Button>
                   <Button className="delete-button"><FaTrash /></Button>
 

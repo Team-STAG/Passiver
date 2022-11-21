@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { AddPackages, Change, Confirm, Dashboard, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { AddPackages, Change, Confirm, Dashboard, EditPackage, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -112,6 +112,21 @@ function App() {
                   path: "add",
                   element: <AddPackages />
 
+                },
+                {
+                  path: "edit",
+                  children: [
+                    {
+                      index: true,
+                      element: <Packages />
+                    },
+
+                    {
+                      path: ":id",
+                      element: <EditPackage />
+                    }
+                  ]
+
                 }
               ]
 
@@ -129,6 +144,22 @@ function App() {
                 {
                   path: "add",
                   element: <AddPackages />
+
+                },
+
+                {
+                  path: "edit",
+                  children: [
+                    {
+                      index: true,
+                      element: <Packages />
+                    },
+
+                    {
+                      path: ":id",
+                      element: <EditPackage />
+                    }
+                  ]
 
                 }
               ]
