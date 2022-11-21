@@ -1,7 +1,7 @@
 @import "./styles";
 @import "./variables";
 
-.investor-content{
+.package-content{
     width: 100%;
 
     &:not(:first-child){
@@ -10,30 +10,6 @@
 
     .subscription-header{
         font-weight: bold;
-    }
-
-    .investor-title{
-        font-weight: bold;
-        font-size: 1.5rem;
-    }
-
-    .user-search{
-        .search-box{
-            width: 400px;
-            height: 50px;
-            border-radius: 10px;
-            -webkit-border-radius: 10px;
-            -moz-border-radius: 10px;
-            -ms-border-radius: 10px;
-            -o-border-radius: 10px;
-            border: 2px solid rgba(0, 0, 0, .2);
-            outline: none;
-            padding: 0px 10px;
-
-            &:focus{
-                border: 2px solid rgba(0, 0, 0, .5);
-            }
-}
     }
 
     .button{
@@ -100,6 +76,48 @@
                         }
                     }
 
+                    .action-btn{
+                        display: flex;
+                        // flex-direction: column;
+
+                        button{
+                            //width: 100%;
+                            border-radius: 5px;
+                            -webkit-border-radius: 5px;
+                            -moz-border-radius: 5px;
+                            -ms-border-radius: 5px;
+                            -o-border-radius: 5px;
+
+                            
+                            &.edit-button{
+                                background: getColor("primary");
+                                color: white;
+                                border: 2px solid getColor("primary");
+
+                                &:hover{
+                                    background: transparent;
+                                    color: getColor("primary");
+                                }
+                            }
+
+                            &.delete-button{
+                                background: red;
+                                color: white;
+                                border: 2px solid red;
+
+                                &:hover{
+                                    background: transparent;
+                                    color: red;
+                                }
+                            }
+
+                            &:not(:first-child){
+                                margin-left: 10px;
+                            }
+                        }
+                        
+                    }
+
                     .status{
                         padding: 5px 10px;
                         display: inline-flex;
@@ -136,6 +154,6 @@
     }
 }
 
-.subscription-header-content{
+.package-header{
     align-items: center;
 }
