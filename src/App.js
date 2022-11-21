@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { Change, Confirm, Dashboard, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { AddPackages, Change, Confirm, Dashboard, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -102,13 +102,36 @@ function App() {
 
             {
               path: "package",
-              element: <Packages />
+              children: [
+
+                {
+                  index: true,
+                  element: <Packages />
+                },
+                {
+                  path: "add",
+                  element: <AddPackages />
+
+                }
+              ]
 
             },
 
             {
               path: "packages",
-              element: <Packages />
+              children: [
+
+                {
+                  index: true,
+                  element: <Packages />
+                },
+
+                {
+                  path: "add",
+                  element: <AddPackages />
+
+                }
+              ]
 
             },
 

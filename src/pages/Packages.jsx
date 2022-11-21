@@ -15,7 +15,7 @@ const Packages = () => {
       <Row justify="space-between" className="package-header package-content">
         <h1>Packages</h1>
 
-        <Link className="button" to="/packages/add">Add Packages <span className="icon"><FaPlus /></span></Link>
+        <Link className="button" to="/account/packages/add">Add Packages <span className="icon"><FaPlus /></span></Link>
       </Row>
 
 
@@ -27,6 +27,7 @@ const Packages = () => {
               <td>Name</td>
               <td>Price (&#8358;)</td>
               <td>Fee</td>
+              <td>Rate</td>
               <td>Created</td>
               <td>Actions</td>
             </tr>
@@ -38,6 +39,7 @@ const Packages = () => {
               <td>Gold</td>
               <td>2000</td>
               <td>200</td>
+              <td>2%</td>
               <td>Sept-4-2022</td>
               <td>
                 
@@ -56,6 +58,7 @@ const Packages = () => {
               <td>Gold</td>
               <td>2000</td>
               <td>200</td>
+              <td>2%</td>
               <td>Sept-4-2022</td>
               <td>
                 

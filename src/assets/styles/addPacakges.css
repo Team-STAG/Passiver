@@ -1,0 +1,96 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: lora;
+  src: url("../fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: lora-bold;
+  src: url("../fonts/Lora-Bold.ttf");
+}
+@font-face {
+  font-family: lora-semibold;
+  src: url("../fonts/Lora-SemiBold.ttf");
+}
+.add-package-content {
+  width: 100%;
+}
+.add-package-content:not(:first-child) {
+  margin-top: 40px;
+}
+.add-package-content .add-package-title {
+  font-weight: bold;
+}
+.add-package-content .package-form .form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.add-package-content .package-form .form-content label,
+.add-package-content .package-form .form-content input {
+  width: 100%;
+  margin-top: 20px;
+}
+.add-package-content .package-form .form-content input {
+  height: 50px;
+  outline: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 0px 20px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+}
+.add-package-content .package-form .form-content input:focus {
+  border: 3px solid rgba(0, 0, 0, 0.7);
+}
+.add-package-content .package-form .form-content .submit-btn {
+  padding: 10px 20px;
+  width: auto;
+  height: auto;
+  background: #B92BB3;
+  color: white;
+  margin-top: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}/*# sourceMappingURL=addPacakges.css.map */
