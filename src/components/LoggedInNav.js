@@ -1,6 +1,6 @@
 import { Button } from 'antd'
 import React from 'react'
-import { FaBars, FaCog, FaHome, FaMoneyBillWave, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
+import { FaBars, FaCog, FaHome, FaMoneyBillWave, FaQuestionCircle, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 
 const LoggedInNav = ({navShrinked}) => {
@@ -60,6 +60,17 @@ const LoggedInNav = ({navShrinked}) => {
                         
                             <span className="icon"><FaShoppingBag /></span>
                             {!navShrinked && <span className="text">Packages</span>}
+                        
+                        </Link>
+                    
+                    </li>
+
+                    <li className={location.pathname === "/account/requests"? "active-link": ""}>
+                        
+                        <Link to="/account/requests">
+                        
+                            <span className="icon"><FaQuestionCircle /></span>
+                            {!navShrinked && <span className="text">Request</span>}
                         
                         </Link>
                     

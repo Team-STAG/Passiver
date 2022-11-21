@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { AddPackages, Change, Confirm, Dashboard, EditPackage, ErrorPage, Investors, LandingPage, Login, Packages, Settings, Subscription, Transaction, Users } from "./pages";
+import { AddPackages, Change, Confirm, Dashboard, EditPackage, ErrorPage, Investors, LandingPage, Login, Packages, Request, Settings, Subscription, Transaction, Users } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -97,6 +97,23 @@ function App() {
             {
               path: "settings",
               element: <Settings />
+
+            },
+
+            {
+              path: "requests",
+              element: <Request />,
+              // children: [
+
+              //   {
+              //     index: true,
+              //     element: <Request />
+
+              //   }
+
+              // ]
+
+
 
             },
 

@@ -12,5 +12,6 @@ import Change from "./Change";
 import Investors from "./Investors";
 import AddPackages from "./AddPackages";
 import EditPackage from "./EditPackage";
+import Request from "./Request";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request};
