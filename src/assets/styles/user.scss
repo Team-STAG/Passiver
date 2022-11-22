@@ -59,6 +59,16 @@
                     height: calc(100% - getMeasurement("headerHeight"));
                     // border: 1px solid red;
                     padding: 30px 0px;
+                    overflow-y: scroll;
+                    scrollbar-color: rgba(255,255, 255, .4);
+
+                    &::-webkit-scrollbar{
+                        width: 5px;
+                    }
+
+                    &::-webkit-scrollbar-thumb{
+                        background: rgba(255,255, 255, .8);
+                    }
 
                     ul{
                         list-style: none;

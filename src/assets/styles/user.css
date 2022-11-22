@@ -96,6 +96,14 @@ a {
   width: 100%;
   height: calc(100% - 80px);
   padding: 30px 0px;
+  overflow-y: scroll;
+  scrollbar-color: rgba(255, 255, 255, 0.4);
+}
+.users .user-container .navbar .nav-container .nav-links::-webkit-scrollbar {
+  width: 5px;
+}
+.users .user-container .navbar .nav-container .nav-links::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.8);
 }
 .users .user-container .navbar .nav-container .nav-links ul {
   list-style: none;
