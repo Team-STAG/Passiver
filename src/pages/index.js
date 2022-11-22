@@ -13,5 +13,8 @@ import Investors from "./Investors";
 import AddPackages from "./AddPackages";
 import EditPackage from "./EditPackage";
 import Request from "./Request";
+import BonusRequest from "./BonusRequest";
+import WithdrawalRequest from "./WithdrawalRequest";
+import InvestmentRequest from "./InvestmentRequest";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest};

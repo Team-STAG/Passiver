@@ -1,0 +1,164 @@
+@import "./styles";
+@import "./variables";
+
+.request-content{
+    width: 100%;
+
+    &:not(:first-child){
+        margin-top: 40px;
+    }
+
+
+    h1{
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    table{
+        width: 100%;
+        border-collapse: collapse;
+
+        td{
+            padding: 20px;
+
+            &.empty-data{
+                text-align: center;
+                font-weight: bold;
+            }
+        }
+
+        thead{
+            tr{
+
+                &:not(:nth-child(even)){
+
+                    background: getColor("tetiary");
+                }
+            }
+
+            td{
+                font-weight: bold;
+            }
+        }
+
+        tbody{
+
+            tr{
+
+                &:nth-child(even){
+
+                    background: getColor("tetiary");
+                }
+
+                td{
+
+                    .withdraw-button{
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -ms-border-radius: 5px;
+                        -o-border-radius: 5px;
+                        background: getColor("primary");
+                        color: white;
+                        border: none;
+
+                        &:disabled{
+                            background: rgba(0, 0, 0, .1);
+                            color: rgba(0, 0, 0, .5);
+                        }
+
+                        &:focus,
+                        &:hover{
+                            border: none;
+                        }
+                    }
+
+                    .action-btn{
+                        display: flex;
+                        // flex-direction: column;
+
+                        button{
+                            //width: 100%;
+                            border-radius: 5px;
+                            -webkit-border-radius: 5px;
+                            -moz-border-radius: 5px;
+                            -ms-border-radius: 5px;
+                            -o-border-radius: 5px;
+
+                            
+                            &.edit-button{
+                                background: getColor("primary");
+                                color: white;
+                                border: 2px solid getColor("primary");
+
+                                &:hover{
+                                    background: transparent;
+                                    color: getColor("primary");
+                                }
+                            }
+
+                            &.delete-button{
+                                background: red;
+                                color: white;
+                                border: 2px solid red;
+
+                                &:hover{
+                                    background: transparent;
+                                    color: red;
+                                }
+                            }
+
+                            &:not(:first-child){
+                                margin-left: 10px;
+                            }
+                        }
+                        
+                    }
+
+                    .status{
+                        padding: 5px 10px;
+                        display: inline-flex;
+                        background: rgba(0, 0, 0, .1);
+                        color: rgba(0, 0, 0, .5);
+                        font-weight: bold;
+                        border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        -moz-border-radius: 5px;
+                        -ms-border-radius: 5px;
+                        -o-border-radius: 5px;
+                    }
+
+                    .success{
+                        background: rgba(0, 255, 0, .1);
+                        color: rgba(0, 200, 0, .5);
+
+                    }
+
+                    .pending{
+                        background: rgba(200, 255, 0, .4);
+                        color: rgba(200, 200, 0, .9);
+
+                    }
+
+                    .failed{
+                        background: rgba(255, 0, 0, .1);
+                        color: rgba(255, 0, 0, .5);
+
+                    }
+                }
+            }
+        }
+    }
+
+    
+}
+
+.request-header-link{
+    
+    .button{
+        color: black;
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+}
