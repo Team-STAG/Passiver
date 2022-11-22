@@ -16,5 +16,6 @@ import Request from "./Request";
 import BonusRequest from "./BonusRequest";
 import WithdrawalRequest from "./WithdrawalRequest";
 import InvestmentRequest from "./InvestmentRequest";
+import Signup from "./Signup";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup};
