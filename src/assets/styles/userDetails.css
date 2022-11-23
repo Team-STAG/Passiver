@@ -1,0 +1,211 @@
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: lora;
+  src: url("../fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: lora-bold;
+  src: url("../fonts/Lora-Bold.ttf");
+}
+@font-face {
+  font-family: lora-semibold;
+  src: url("../fonts/Lora-SemiBold.ttf");
+}
+.user-details-content {
+  width: 100%;
+}
+.user-details-content:not(:first-child) {
+  margin-top: 40px;
+}
+.user-details-content h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.user-details-content .packages-table:not(:first-child) {
+  margin-top: 30px;
+}
+.user-details-content .packages-table h2 {
+  font-size: 1rem;
+  font-weight: bold;
+}
+.user-details-content .packages-table table {
+  margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.user-details-content .packages-table table td {
+  padding: 20px;
+}
+.user-details-content .packages-table table td.empty-data {
+  text-align: center;
+  font-weight: bold;
+}
+.user-details-content .packages-table table thead tr:not(:nth-child(even)) {
+  background: #FFF1FE;
+}
+.user-details-content .packages-table table thead td {
+  font-weight: bold;
+}
+.user-details-content .packages-table table tbody tr:nth-child(even) {
+  background: #FFF1FE;
+}
+.user-details-content .packages-table table tbody tr td .withdraw-button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background: #B92BB3;
+  color: white;
+  border: none;
+}
+.user-details-content .packages-table table tbody tr td .withdraw-button:disabled {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+}
+.user-details-content .packages-table table tbody tr td .withdraw-button:focus, .user-details-content .packages-table table tbody tr td .withdraw-button:hover {
+  border: none;
+}
+.user-details-content .packages-table table tbody tr td .action-btn {
+  display: flex;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button.edit-button {
+  background: #B92BB3;
+  color: white;
+  border: 2px solid #B92BB3;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button.edit-button:hover {
+  background: transparent;
+  color: #B92BB3;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button.delete-button {
+  background: red;
+  color: white;
+  border: 2px solid red;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button.delete-button:hover {
+  background: transparent;
+  color: red;
+}
+.user-details-content .packages-table table tbody tr td .action-btn button:not(:first-child) {
+  margin-left: 10px;
+}
+.user-details-content .packages-table table tbody tr td .status {
+  padding: 5px 10px;
+  display: inline-flex;
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.user-details-content .packages-table table tbody tr td .success {
+  background: rgba(0, 255, 0, 0.1);
+  color: rgba(0, 200, 0, 0.5);
+}
+.user-details-content .packages-table table tbody tr td .pending {
+  background: rgba(200, 255, 0, 0.4);
+  color: rgba(200, 200, 0, 0.9);
+}
+.user-details-content .packages-table table tbody tr td .failed {
+  background: rgba(255, 0, 0, 0.1);
+  color: rgba(255, 0, 0, 0.5);
+}
+.user-details-content .form .form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.user-details-content .form .form-content label,
+.user-details-content .form .form-content input,
+.user-details-content .form .form-content select {
+  width: 100%;
+  margin-top: 20px;
+}
+.user-details-content .form .form-content input,
+.user-details-content .form .form-content select {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 0px 20px;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+}
+.user-details-content .form .form-content input:focus,
+.user-details-content .form .form-content select:focus {
+  border: 3px solid rgba(0, 0, 0, 0.7);
+}
+.user-details-content .form .form-content .submit-button {
+  padding: 10px 20px;
+  width: auto;
+  height: auto;
+  background: #B92BB3;
+  color: white;
+  margin-top: 20px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 3px solid #B92BB3;
+}
+.user-details-content .form .form-content .submit-button:hover {
+  color: #B92BB3;
+  background: transparent;
+  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -ms-transition: 0.5s ease all;
+  -o-transition: 0.5s ease all;
+}/*# sourceMappingURL=userDetails.css.map */

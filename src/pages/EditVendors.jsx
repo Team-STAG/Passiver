@@ -6,7 +6,7 @@ import "../assets/styles/addVendors.css"
 const EditVendors = () => {
 
     const [vendorState, setVendorState] = useState({
-        phoneNumber: ""
+        phoneNumber: "+2349036634645"
     })
   return (
     <>
@@ -14,7 +14,7 @@ const EditVendors = () => {
 
         <Row justify="space-between" className='add-vendor-content'>
 
-            <h1>Add New Vendor</h1>
+            <h1>Edit Vendor</h1>
 
         </Row>
 

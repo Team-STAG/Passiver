@@ -21,5 +21,7 @@ import Subscribe from "./Subscribe";
 import VendorList from "./VendorList";
 import Vendors from "./Vendors";
 import AddVendors from "./AddVendors";
+import EditVendors from "./EditVendors";
+import UserDetails from "./UserDetails";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList, Vendors, AddVendors};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList, Vendors, AddVendors, EditVendors, UserDetails};

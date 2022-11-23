@@ -3,7 +3,7 @@ import {
   createBrowserRouter,
   RouterProvider
 } from "react-router-dom";
-import { AddPackages, AddVendors, BonusRequest, Change, Confirm, Dashboard, EditPackage, ErrorPage, InvestmentRequest, Investors, LandingPage, Login, Packages, Request, Settings, Signup, Subscribe, Subscription, Transaction, Users, VendorList, Vendors, WithdrawalRequest } from "./pages";
+import { AddPackages, AddVendors, BonusRequest, Change, Confirm, Dashboard, EditPackage, EditVendors, ErrorPage, InvestmentRequest, Investors, LandingPage, Login, Packages, Request, Settings, Signup, Subscribe, Subscription, Transaction, UserDetails, Users, VendorList, Vendors, WithdrawalRequest } from "./pages";
 import ForgotPassword from "./pages/ForgotPassword";
 
 
@@ -199,6 +199,22 @@ function App() {
                 {
                   path: "add",
                   element: <AddVendors />
+                },
+
+                {
+                  path: "edit",
+                  children: [
+                    {
+                      index: true,
+                      element: <Vendors />
+                    },
+
+                    {
+                      path: ":id",
+                      element: <EditVendors />
+                    }
+                  
+                  ]
                 }
               ]
             },
@@ -239,7 +255,18 @@ function App() {
 
             {
               path: "users",
-              element: <Investors />
+              children: [
+                {
+                  index: true,
+                  element: <Investors />
+                },
+
+                {
+                  path: ":id",
+                  element: <UserDetails />
+
+                }
+              ]
 
             },
 
