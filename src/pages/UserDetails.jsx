@@ -162,15 +162,29 @@ const UserDetails = () => {
             <Col span={24} className="form">
                 <div className='form-content'>
                     <label htmlFor='vendor'>Vendor</label>
-                    <select id="vendor">
+                    <select id="vendor" value={packageFormState.vendorId} onChange={(e)=>{
+                        setPackageFormState(prevState => {
+                            return({
+                                ...prevState,
+                                vendorId: e.target.value
+                            })
+                        })
+                    }}>
                         <option value="">--Chose a vendor--</option>
                         <option value="+2349036634645">+2349036634645</option>
                     </select>
                 </div>
 
                 <div className='form-content'>
-                    <label htmlFor='vendor'>Package</label>
-                    <select id="vendor">
+                    <label htmlFor='package'>Package</label>
+                    <select id="package" value={packageFormState.packageId} onChange={(e)=>{
+                        setPackageFormState(prevState => {
+                            return({
+                                ...prevState,
+                                packageId: e.target.value
+                            })
+                        })
+                    }}>
                         <option value="">--Chose a package--</option>
                         <option value="gold">Gold</option>
                     </select>
