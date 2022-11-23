@@ -1,11 +1,11 @@
 import { Button, Col, message, Row } from 'antd'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState} from 'react'
 import { Header } from '../components'
 
 import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate  } from 'react-router-dom'
 
 const Signup = () => {
     const [formState, setFormState] = useState(
@@ -27,6 +27,8 @@ const Signup = () => {
     const [searchParams] = useSearchParams();
 
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(()=>{
 
@@ -66,12 +68,18 @@ const Signup = () => {
             message.error("you must agree to the terms and condition to continue")
         }else{
             setLoading(true);
+
+            setTimeout(()=>{
+            
+                navigate("/account");
+
+            }, 2000)
         }
 
-    }, [formState])
+    }, [formState, navigate])
 
   return (
-    <>
+    <>      
         <Header />
 
         <div className='all-page-container'>

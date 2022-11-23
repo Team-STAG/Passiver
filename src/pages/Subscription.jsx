@@ -10,7 +10,7 @@ const Subscription = () => {
     
         <Row justify="space-between" className="subscription-content subscription-header-content">
             <h1 className="subscription-header">Subscription</h1>
-            <Link to="/account/packages" className='button'>Packages</Link>
+            <Link to="/account/subscribe" className='button'>Subscribe</Link>
         </Row>
 
         <Row justify="center" className="subscription-content">
