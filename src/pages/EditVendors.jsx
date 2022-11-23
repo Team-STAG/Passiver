@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 
 import "../assets/styles/addVendors.css"
 
-const AddVendors = () => {
+const EditVendors = () => {
 
     const [vendorState, setVendorState] = useState({
         phoneNumber: ""
@@ -38,7 +38,7 @@ const AddVendors = () => {
 
                 <div className='form-content'>
                     <Button className='submit-btn'>
-                        Submit
+                        Save
                     </Button>
                 </div>
             </div>
@@ -49,4 +49,4 @@ const AddVendors = () => {
   )
 }
 
-export default AddVendors
+export default EditVendors
