@@ -54,6 +54,17 @@ const LoggedInNav = ({navShrinked}) => {
                     
                     </li>
 
+                    <li className={location.pathname === "/account/vendors"? "active-link": ""}>
+                        
+                        <Link to="/account/vendors">
+                        
+                            <span className="icon"><FaUsers /></span>
+                            {!navShrinked && <span className="text">Vendors</span>}
+                        
+                        </Link>
+                    
+                    </li>
+
                     <li className={location.pathname === "/account/packages"? "active-link": ""}>
                         
                         <Link to="/account/packages">

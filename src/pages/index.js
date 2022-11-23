@@ -19,5 +19,7 @@ import InvestmentRequest from "./InvestmentRequest";
 import Signup from "./Signup";
 import Subscribe from "./Subscribe";
 import VendorList from "./VendorList";
+import Vendors from "./Vendors";
+import AddVendors from "./AddVendors";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList, Vendors, AddVendors};
