@@ -18,7 +18,7 @@ const Subscribe = () => {
 
                 <p>Fee:</p>
                 <p className="subscribe-fee">&#8358;300</p>
-                <Link className="button" to="/account/vendors/packageid">Subscribe</Link>
+                <Link className="button" to="/account/subscribe/packageid">Subscribe</Link>
             </Col>
 
             <Col span={7} className="subscribe-card">
@@ -29,7 +29,7 @@ const Subscribe = () => {
 
                 <p>Fee:</p>
                 <p className="subscribe-fee">&#8358;300</p>
-                <Link className="button" to="/account/vendors/packageid">Subscribe</Link>
+                <Link className="button" to="/account/subscribe/packageid">Subscribe</Link>
             </Col>
 
             <Col span={7} className="subscribe-card">
@@ -40,7 +40,7 @@ const Subscribe = () => {
 
                 <p>Fee:</p>
                 <p className="subscribe-fee">&#8358;300</p>
-                <Link className="button" to="/account/vendors/packageid">Subscribe</Link>
+                <Link className="button" to="/account/subscribe/packageid">Subscribe</Link>
             </Col>
 
         </Row>
