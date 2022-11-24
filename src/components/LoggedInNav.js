@@ -12,7 +12,7 @@ const LoggedInNav = ({navShrinked}) => {
 
             
             <div className='nav-header'>
-                <Link to="/" className="logo-text">Passivers</Link>
+                <Link to="/" className="logo-text">passiveeer</Link>
 
                 <Button className="shrink-nav-button"><FaBars /></Button>
             </div>

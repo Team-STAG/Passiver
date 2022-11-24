@@ -4,6 +4,8 @@ import { Footer, Header } from '../components'
 
 import "../assets/styles/landingpage.css"
 import AboutImageOne from "../assets/images/about_image_one.png"
+import AboutImageTwo from "../assets/images/about_image_two.png"
+import AboutImageThree from "../assets/images/about_image_three.png"
 import { Link } from 'react-router-dom'
 import Accordion from '../components/Accordion'
 import { SiteData } from '../data'
@@ -19,12 +21,12 @@ const LandingPage = () => {
             <Row justify="space-between" className='landing-page-banner' id="home">
 
                 <Col span={7} push={1} lg={{span: 7}}  md={{span: 10}} sm={{span: 17}} xs={{span: 24}} className="landing-page-banner-content">
-                    <h1><span className='colored'>INVEST</span> in your</h1>
-                    <h1>future now</h1>
+                    <h1><span className='colored'>Grow </span>your funds</h1>
+                    <h1>now</h1>
 
-                    <p>We offer you a great and simplified way to invest now and earn big with an ROI of 50%</p>
+                    <p>We offer you a great and simplified way to earn big with an ROI of 50%</p>
 
-                    <Button className="cta-button">Learn more</Button>
+                    <a href="#about" className="button cta-button">Learn more</a>
                 </Col>
 
             </Row>
@@ -41,13 +43,13 @@ const LandingPage = () => {
                         </Col>
 
                         <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
-                            <h3 className='title'>50% ROI</h3>
+                            <h3 className='title'>Investment at your best interest</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
                         </Col>
 
                         <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
-                            <h3 className='title'>50% ROI</h3>
+                            <h3 className='title'>99% success rate</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
                         </Col>
@@ -61,7 +63,9 @@ const LandingPage = () => {
 
                 <Col span={22}>
 
-                    <h2 className="about-header">Why subscribe to passivers?</h2>
+                    <h2 className="about-header">Why subscribe to passiveeer?</h2>
+
+                    <p className="about-subtitle">Passiveeers is a strategic, Multipurpose Income genarating system connecting Advert Vendors, Team builders, Affiliate Markers and game changes into a new level of Unrestricted Passive Income</p>
 
                     <Row justify="space-between" className="about-content">
 
@@ -86,15 +90,15 @@ const LandingPage = () => {
                         
                         <Col span={10} lg={{span: 10, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 2}}  className="about-image">
 
-                            <img src={AboutImageOne} alt="" />
+                            <img src={AboutImageTwo} alt="" />
 
                         </Col>
 
                         <Col span={12} lg={{span: 12, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 1}}  className="about-text">
 
-                            <h3>Increased value for money</h3>
+                            <h3>Achieving financial freedom</h3>
 
-                            <p>Your money will be more useful and profitable in the long run. Through investing, you manange your money to  yield high return</p>
+                            <p>Financial freedom is a condition to which you're finally independent. It means that your income is sufficient to meet your daily needs</p>
                             
                         </Col>
 
@@ -105,15 +109,15 @@ const LandingPage = () => {
 
                         <Col span={10} lg={{span: 10, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 2}}  className="about-image">
 
-                            <img src={AboutImageOne} alt="" />
+                            <img src={AboutImageThree} alt="" />
 
                         </Col>
 
                         <Col span={12} lg={{span: 12, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 1}}  className="about-text">
 
-                            <h3>Increased value for money</h3>
+                            <h3>24/7 Customer support</h3>
 
-                            <p>Your money will be more useful and profitable in the long run. Through investing, you manange your money to  yield high return</p>
+                            <p>We listen to our customers and work with them. our support team is always available to answer any of your questions. As owner, you have access to personalized financial advice, High quality investments, retirement tools and relevant market insights that help you build a future for those you love.</p>
                             
                         </Col>
 
@@ -130,7 +134,7 @@ const LandingPage = () => {
 
                     <h2 className='faq-header'>Frequently Asked Questions</h2>
 
-                    <p className="faq-subtitle">Below are some common question that comes up in the mind of Passivers investors and the simplest answer to them</p>
+                    <p className="faq-subtitle">Below are some common question that comes up in the mind of passiveeer investors and the simplest answer to them</p>
 
                     <Accordion data={SiteData.faq} className="accordion-content" />
 
@@ -143,7 +147,7 @@ const LandingPage = () => {
 
                 <Col span={22}>
 
-                    <h2>Top passivers earners</h2>
+                    <h2>Top passiveeer earners</h2>
 
                     <div className='earners-table'>
 

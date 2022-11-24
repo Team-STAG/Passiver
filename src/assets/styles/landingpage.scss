@@ -28,8 +28,8 @@
             margin-top: 10px;
         }
 
-        button{
-            font-size: 1.3rem;
+        .cta-button{
+            font-size: 1rem;
             background: getColor("primary");
             padding: 10px 20px;
             height: auto;
@@ -89,6 +89,10 @@
         font-weight: bold;
         font-size: getMeasurement("headerFontSize");
         margin-bottom: 50px;
+    }
+
+    .about-subtitle{
+        font-size: 1.3rem;
     }
 
     .about-content{

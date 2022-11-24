@@ -56,7 +56,7 @@ const Login = () => {
 
                             <div className='image-overlay'>
 
-                                <h1>Keep Earning Big with Passivers</h1>
+                                <h1>Keep Earning Big with passiveeer</h1>
 
                             </div>
 

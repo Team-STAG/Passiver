@@ -70,8 +70,8 @@ a {
   font-size: 1.3rem;
   margin-top: 10px;
 }
-.landing-page-banner .landing-page-banner-content button {
-  font-size: 1.3rem;
+.landing-page-banner .landing-page-banner-content .cta-button {
+  font-size: 1rem;
   background: #B92BB3;
   padding: 10px 20px;
   height: auto;

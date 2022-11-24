@@ -27,7 +27,7 @@ const Header = () => {
                 <Row justify="space-between" className='header-content'>
 
                     <div className='logo'>
-                        <Link to="/">Passivers</Link>
+                        <Link to="/">passiveeer</Link>
                     </div>
 
                     <div className='desktop-link'>

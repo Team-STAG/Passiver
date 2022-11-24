@@ -85,7 +85,7 @@ const Dashboard = () => {
 
             <h3>Referral Link</h3>
 
-            <p>https://passivers.com/signup?ref=psfuib887</p>
+            <p>https://passiveeer.com/signup?ref=psfuib887</p>
 
           </div>
 

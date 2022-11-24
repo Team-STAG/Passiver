@@ -79,7 +79,7 @@ const ForgotPassword = () => {
 
                             </h2>
 
-                            <p className='form-subtitle'>Please enter email you used in opening an account on passivers, an email confirmation will be sent to the email</p>
+                            <p className='form-subtitle'>Please enter email you used in opening an account on passiveeer, an email confirmation will be sent to the email</p>
 
                             <div className='form'>
 
