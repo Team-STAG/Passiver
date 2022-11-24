@@ -57,6 +57,7 @@ a {
   min-height: 687px;
   background-attachment: fixed;
   align-items: center;
+  justify-content: flex-start;
 }
 .landing-page-banner .landing-page-banner-content h1 {
   font-size: 3rem;
@@ -113,6 +114,10 @@ a {
   font-weight: bold;
   font-size: 1.6rem;
   margin-bottom: 50px;
+}
+.landing-page-about .about-subtitle {
+  font-size: 1.3rem;
+  text-align: center;
 }
 .landing-page-about .about-content {
   margin-top: 60px;
@@ -192,6 +197,26 @@ a {
 }
 .earners-container .earners-table table td {
   padding: 20px;
+  position: relative;
+}
+.earners-container .earners-table table td .tag {
+  padding: 5px;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+  margin-left: 5px;
+  background: #e6e6e6;
+  font-size: 0.6rem;
+}
+.earners-container .earners-table table td .gold {
+  background: #D4AF37;
+  color: white;
+}
+.earners-container .earners-table table td .bronze {
+  background: #CD7F32;
+  color: white;
 }
 .earners-container .earners-table table thead tr {
   font-weight: bold;
@@ -201,6 +226,9 @@ a {
 }
 .earners-container .earners-table table tbody tr:nth-child(even) {
   background: #EBC9EA;
+}
+.earners-container .earners-table table tbody tr.special-user {
+  font-weight: bold;
 }
 .earners-container .earners-table::-webkit-scrollbar {
   height: 4px;
@@ -230,6 +258,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
   }
   .landing-page-banner .landing-page-banner-content p {

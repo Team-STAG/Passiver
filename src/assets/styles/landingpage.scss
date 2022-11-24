@@ -10,8 +10,10 @@
     min-height: 687px;
     background-attachment: fixed;
     align-items: center;
+    justify-content: flex-start;
 
     .landing-page-banner-content{
+        // border: 1px solid red;
 
         h1{
             font-size: 3rem;
@@ -93,6 +95,7 @@
 
     .about-subtitle{
         font-size: 1.3rem;
+        text-align: center;
     }
 
     .about-content{
@@ -192,6 +195,33 @@
     
             td{
                 padding: 20px;
+                position: relative;
+
+                .tag{
+                    padding: 5px;
+                    border-radius: 30px;
+                    -webkit-border-radius: 30px;
+                    -moz-border-radius: 30px;
+                    -ms-border-radius: 30px;
+                    -o-border-radius: 30px;
+                    margin-left: 5px;
+                    background: #e6e6e6;
+                    // position: absolute;
+                    // top: 0px;
+                    // left: 0px;
+                    font-size: 0.6rem;
+                
+                }
+
+                .gold{
+                    background: #D4AF37;
+                    color: white;
+                }
+
+                .bronze{
+                    background: #CD7F32;
+                    color: white;
+                }
             }
     
             
@@ -217,6 +247,10 @@
                     &:nth-child(even){
                         background: getColor('secondary');
     
+                    }
+
+                    &.special-user{
+                        font-weight: bold;
                     }
                 }
     
@@ -270,6 +304,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            text-align: center;
             justify-content: center;
 
             p{

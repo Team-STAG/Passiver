@@ -1,4 +1,4 @@
-import { Button, Col, Row } from 'antd'
+import { Col, Row } from 'antd'
 import React from 'react'
 import { Footer, Header } from '../components'
 
@@ -18,16 +18,22 @@ const LandingPage = () => {
 
         <div className='all-page-container'>
 
-            <Row justify="space-between" className='landing-page-banner' id="home">
+            <Row justify="center" className='landing-page-banner' id="home">
 
-                <Col span={7} push={1} lg={{span: 7}}  md={{span: 10}} sm={{span: 17}} xs={{span: 24}} className="landing-page-banner-content">
-                    <h1><span className='colored'>Grow </span>your funds</h1>
-                    <h1>now</h1>
+                <Col span={22}>
+                    <Row justify="space-between">
 
-                    <p>We offer you a great and simplified way to earn big with an ROI of 50%</p>
+                        <Col span={7} lg={{span: 7}}  md={{span: 10}} sm={{span: 17}} xs={{span: 24}} className="landing-page-banner-content">
+                            <h1><span className='colored'>Grow </span>your funds now</h1>
 
-                    <a href="#about" className="button cta-button">Learn more</a>
+                            <p>We offer you a great and simplified way to earn big with an ROI of 50%</p>
+
+                            <a href="#about" className="button cta-button">Learn more</a>
+                        </Col>
+
+                    </Row>
                 </Col>
+
 
             </Row>
 
@@ -36,20 +42,22 @@ const LandingPage = () => {
                 <Col span={22}>
 
                     <Row justify="space-between">
+                        
+                        <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
+                            <h3 className='title'>Subscribe to Deluxe plan</h3>
+
+                            <p>Earn at your best interest with the available plans involved in bringing you your financial success</p>
+                        </Col>
+
                         <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
                             <h3 className='title'>50% ROI</h3>
 
-                            <p>Get back 50% of whatever you invested over a period of 3 months</p>
+                            <p>Get a whooping 50% profit of whatever plan you subscribe to in 25 days</p>
                         </Col>
 
-                        <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
-                            <h3 className='title'>Investment at your best interest</h3>
-
-                            <p>Get back 50% of whatever you invested over a period of 3 months</p>
-                        </Col>
 
                         <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
-                            <h3 className='title'>99% success rate</h3>
+                            <h3 className='title'>35% Referral bonus</h3>
 
                             <p>Get back 50% of whatever you invested over a period of 3 months</p>
                         </Col>
@@ -65,7 +73,7 @@ const LandingPage = () => {
 
                     <h2 className="about-header">Why subscribe to passiveeer?</h2>
 
-                    <p className="about-subtitle">Passiveeers is a strategic, Multipurpose Income genarating system connecting Advert Vendors, Team builders, Affiliate Markers and game changes into a new level of Unrestricted Passive Income</p>
+                    <p className="about-subtitle">Passiveeers is a strategic, Multipurpose Income generating system connecting Advert Vendors, Team builders, Affiliate Markers and game changes into a new level of Unrestricted Passive Income</p>
 
                     <Row justify="space-between" className="about-content">
 
@@ -91,7 +99,6 @@ const LandingPage = () => {
                         <Col span={10} lg={{span: 10, order: 2}} md={{span: 11, order: 2}} xs={{span: 24, order: 2}}  className="about-image">
 
                             <img src={AboutImageTwo} alt="" />
-
                         </Col>
 
                         <Col span={12} lg={{span: 12, order: 1}} md={{span: 11, order: 1}} xs={{span: 24, order: 1}}  className="about-text">
@@ -164,8 +171,24 @@ const LandingPage = () => {
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>1</td>
+                                <tr className='special-user'>
+                                    <td>1<span className="tag gold">Gold</span> </td>
+                                    <td> dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
+
+                                <tr className='special-user'>
+                                    <td>1 <span className="tag silver">Silver</span>  </td>
+                                    <td>dasimems</td>
+                                    <td>Aug-29-2022</td>
+                                    <td>3500</td>
+                                    <td>35,500</td>
+                                </tr>
+
+                                <tr className='special-user'>
+                                    <td>1 <span className="tag bronze">Bronze</span></td>
                                     <td>dasimems</td>
                                     <td>Aug-29-2022</td>
                                     <td>3500</td>
@@ -174,23 +197,7 @@ const LandingPage = () => {
 
                                 <tr>
                                     <td>1</td>
-                                    <td>dasimems</td>
-                                    <td>Aug-29-2022</td>
-                                    <td>3500</td>
-                                    <td>35,500</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>dasimems</td>
-                                    <td>Aug-29-2022</td>
-                                    <td>3500</td>
-                                    <td>35,500</td>
-                                </tr>
-
-                                <tr>
-                                    <td>1</td>
-                                    <td>dasimems</td>
+                                    <td>  dasimems</td>
                                     <td>Aug-29-2022</td>
                                     <td>3500</td>
                                     <td>35,500</td>

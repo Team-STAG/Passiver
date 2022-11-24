@@ -20,7 +20,7 @@ const AddPackages = () => {
     <>
 
         <Row justify="space-between" className='add-package-content'>
-            <h1 className='add-package-title'>Add New Package</h1>
+            <h1 className='add-package-title'>Edit Package</h1>
         </Row>
 
         <Row justify="center" className='add-package-content'>
