@@ -6,11 +6,13 @@ import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
 import { Link, useSearchParams, useNavigate  } from 'react-router-dom'
+import api from '../api/api'
 
 const Signup = () => {
     const [formState, setFormState] = useState(
         {
             email: "",
+            name: "",
             emailERr: "",
             password: "",
             passwordTwo: "",
@@ -47,12 +49,15 @@ const Signup = () => {
 
         
 
-        var {email, password, passwordTwo, mobileNumber, terms} = formState;
+        var {name, email, password, passwordTwo, mobileNumber, terms, ref} = formState;
 
-        if(email === ""){
+        if (name === ""){
+            message.error("Please enter your full name")
+
+        } if (email === "") {
             message.error("Please enter your email")
 
-        }else if(mobileNumber === ""){
+        } else if(mobileNumber === ""){
             message.error("Please input your phone number")
 
         }else if(password === ""){
@@ -69,11 +74,38 @@ const Signup = () => {
         }else{
             setLoading(true);
 
-            setTimeout(()=>{
-            
-                navigate("/account");
+            const data = {
+                email,
+                password,
+                name,
+                ref,
+                phoneNumber: mobileNumber
+            }
 
-            }, 2000)
+            api.post("/auth/register", data)
+                .then(res => {
+
+                    console.log(res)
+
+                    message.success("Registration successful", 1000)
+                        .then(()=>{
+                            message.loading("Redirecting...", 1000)
+
+                            setTimeout(()=>{
+                                navigate("/login")
+                            }, 1000)
+                        })
+
+                }).catch(err => {
+                    const {response} = err;
+
+                    if(response && response.data){
+                        const {message: sentMessage} = response.data;
+                        message.error(sentMessage);
+                    }
+                    console.log(err)
+                    setLoading(false)
+                })
         }
 
     }, [formState, navigate])
@@ -115,6 +147,21 @@ const Signup = () => {
                             <p className='form-subtitle'>Please enter your details below to enable us open an account for you.</p>
 
                             <div className='form'>
+
+                                <div className='form-content'>
+                                    <label htmlFor='name'>Full Name</label>
+                                    <input type="text" className='name' id="name" placeholder='Your name' value={formState.name} onChange={(e) => {
+
+                                        setFormState(prevState => {
+                                            return ({
+                                                ...prevState,
+                                                name: e.target.value.trim()
+                                            })
+                                        })
+
+                                    }} />
+
+                                </div>
 
                                 <div className='form-content'>
                                     <label htmlFor='email'>Email</label>
@@ -205,6 +252,21 @@ const Signup = () => {
                                     </div>
 
                                 </div>
+
+                                  <div className='form-content'>
+                                      <label htmlFor='referral-code'>Referral Code</label>
+                                      <input type="text" disabled={searchParams.has("ref") && searchParams.get("ref") !== ""? true: false} className='referral-code' id="referral-code" placeholder='Referral code' value={formState.ref} onChange={(e) => {
+
+                                          setFormState(prevState => {
+                                              return ({
+                                                  ...prevState,
+                                                  ref: e.target.value.trim()
+                                              })
+                                          })
+
+                                      }} />
+
+                                  </div>
 
                                 <div className='form-content'>
 

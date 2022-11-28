@@ -1,5 +1,6 @@
 import { Button, Row } from 'antd'
-import React, { useState } from 'react'
+import React, { useCallback, useState } from 'react'
+import api from '../api/api'
 
 import "../assets/styles/addVendors.css"
 
@@ -8,6 +9,27 @@ const AddVendors = () => {
     const [vendorState, setVendorState] = useState({
         phoneNumber: ""
     })
+
+    const [loading, setLoading] = useState(false)
+
+    const addVendor = useCallback(() => {
+
+        const {phoneNumber} = vendorState;
+
+        setLoading(true);
+
+        api.post("/admin/vendor", {phoneNumber})
+        .then(res => {
+
+        }).catch(err => {
+
+            console.log(err);
+
+        }).finally(()=>{
+            setLoading(false)
+        })
+
+    }, [vendorState])
   return (
     <>
     
@@ -37,10 +59,10 @@ const AddVendors = () => {
                 </div>
 
                 <div className='form-content'>
-                    <Button className='submit-btn'>
+                      <Button loading={loading} onClick={addVendor} className='submit-btn'>
                         Submit
                     </Button>
-                </div>
+                 </div>
             </div>
 
         </Row>

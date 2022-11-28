@@ -6,6 +6,8 @@ import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import useUserContext from '../context/UserContext'
+import api from '../api/api'
 
 const Login = () => {
     const [formState, setFormState] = useState(
@@ -18,6 +20,8 @@ const Login = () => {
         }
     );
 
+    const { addUserDetails } = useUserContext();
+
     const [loading, setLoading] = useState(false);
 
     const loginUser = useCallback(()=>{
@@ -27,6 +31,45 @@ const Login = () => {
         var {email, password} = formState
 
         if(email !== "" && password !== ""){
+
+            var data = {
+                username: email,
+                password
+            }
+
+            api
+                .post("/auth/login", data)
+                .then(res => {
+
+                    addUserDetails().then(res => {
+
+                    }).catch(err => {
+                        const {response} = err;
+                        message.error(response)
+                    })
+
+                }).catch(err => {
+                    const {response} = err;
+
+                    if(response.data){
+
+                        const {message: sentMessage} = response.data;
+
+                        if(message){
+
+                            message.error(sentMessage)
+                        }else{
+                            message.error("Something went wrong! Please try again later")
+                        }
+
+
+                    }else{
+                        message.error("Something went wrong! Please try again later")
+                    }
+                    console.log(err);
+                }).finally(()=>{
+                    setLoading(false);
+                });
             
         }else{
 
@@ -34,7 +77,7 @@ const Login = () => {
             setLoading(false)
         }
 
-    }, [formState])
+    }, [formState, addUserDetails])
 
   return (
     <>
