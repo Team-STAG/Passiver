@@ -74,12 +74,28 @@ const Signup = () => {
         }else{
             setLoading(true);
 
-            const data = {
+            mobileNumber = mobileNumber.replace("+", "");
+            var phoneNumberFirst = mobileNumber.slice(0, 1);
+
+            if (phoneNumberFirst.toString() === "0") {
+                mobileNumber = "234" + mobileNumber.slice(1,);
+            }
+
+
+            var data = {
                 email,
                 password,
                 name,
-                ref,
                 phoneNumber: mobileNumber
+            }
+
+            
+
+            if(ref !== ""){
+                data= {
+                    ...data,
+                    referredBy: ref,
+                }
             }
 
             api.post("/auth/register", data)
@@ -87,14 +103,14 @@ const Signup = () => {
 
                     console.log(res)
 
-                    message.success("Registration successful", 1000)
+                    message.success("Registration successful")
                         .then(()=>{
-                            message.loading("Redirecting...", 1000)
-
-                            setTimeout(()=>{
-                                navigate("/login")
-                            }, 1000)
+                            message.loading("Redirecting...")
                         })
+
+                    setTimeout(() => {
+                        navigate("/login")
+                    }, 3000)
 
                 }).catch(err => {
                     const {response} = err;

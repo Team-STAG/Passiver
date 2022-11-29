@@ -1,6 +1,8 @@
-import { Button, Col, Row } from 'antd'
-import React, { useState } from 'react'
+import { Button, Col, message, Row } from 'antd'
+import React, { useCallback, useState } from 'react'
 import { FaPlus } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom';
+import api from '../api/api';
 
 import "../assets/styles/addPacakges.css";
 
@@ -13,6 +15,48 @@ const AddPackages = () => {
         rate: ""
 
     })
+
+    const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+
+    const addPackage = useCallback(()=>{
+
+        var { name, price, fee, rate } = packageDetails;
+        price = parseInt(price);
+        fee = parseInt(fee);
+        rate = parseInt(rate);
+
+        if(name !== "" && price !== "" && fee !== "" && rate !== ""){
+
+            setLoading(true);
+
+            api.post("/admin/packages", {name, vendorFee: fee, price, dailyRate: rate, description: `Earn daily with the rate of ${rate}%`})
+            .then(res => {
+
+                message.success("package added successfully");
+                navigate("/account/packages")
+
+
+            }).catch(err => {
+                console.log(err)
+                var {data} = err.response;
+
+                if(data.message){
+                    message.error(data.message);
+                }else{
+                    message.error("Unable to add package! please try again later")
+                }
+            }).finally(()=>{
+                setLoading(false)
+            })
+
+        }else{
+            message.error("Please fill in all details");
+        }
+
+
+
+    }, [packageDetails, navigate])
 
     
 
@@ -80,7 +124,9 @@ const AddPackages = () => {
                 </div>
 
                 <div className='form-content'>
-                    <Button className="submit-btn">
+                    <Button loading={loading} onClick={()=>{
+                        addPackage();
+                    }} className="submit-btn">
                         Add <span className="icon"><FaPlus /></span>
                     </Button>
                 </div>

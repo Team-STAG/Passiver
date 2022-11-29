@@ -18,16 +18,16 @@ export const UserProvider = ({children}) => {
 
     const addUserDetails = useCallback((userDetails, token)=>{
       
-      return new Promise((resolve, reject)=>{
+      return new Promise(async (resolve, reject)=>{
         if(userDetails && typeof(userDetails) === "object"){
 
           dispatch({type: "add_details", payload: userDetails});
 
           if(token){
 
-            dispatch({ type: "add-token", payload: token})
+            await localStorage.setItem("user_token", token);
+            dispatch({ type: "add_token", payload: token})
   
-            localStorage.setItem("user_token", token);
           }
 
           resolve({
@@ -45,10 +45,32 @@ export const UserProvider = ({children}) => {
 
     }, [])
 
+    const logOutUser = useCallback(()=>{
+
+      return new Promise(async (resolve, reject) => {
+        
+        
+        if (localStorage.getItem("user_token")){
+
+          await localStorage.removeItem("user_token");
+          dispatch({ type: "remove_details"});
+          resolve({
+            response: "You've been successfully logged out"
+          })
+
+            
+
+          
+        }
+
+      })
+
+    }, [])
+
   return (
     <>
 
-        <UserContext.Provider value={{userState, addUserDetails, passwordReset, passwordResetEmail, setPasswordReset, setPasswordResetEmail}}>
+      <UserContext.Provider value={{ userState, addUserDetails, passwordReset, passwordResetEmail, setPasswordReset, setPasswordResetEmail, logOutUser }}>
             {children}
         </UserContext.Provider>
     

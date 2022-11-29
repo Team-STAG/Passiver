@@ -5,11 +5,12 @@ import { Header } from '../components'
 import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import useUserContext from '../context/UserContext'
 import api from '../api/api'
 
 const Login = () => {
+    
     const [formState, setFormState] = useState(
         {
             email: "",
@@ -20,7 +21,7 @@ const Login = () => {
         }
     );
 
-    const { addUserDetails } = useUserContext();
+    const {userState, addUserDetails } = useUserContext();
 
     const [loading, setLoading] = useState(false);
 
@@ -41,7 +42,14 @@ const Login = () => {
                 .post("/auth/login", data)
                 .then(res => {
 
-                    addUserDetails().then(res => {
+
+                    var {token, user} = res.data;
+
+                    addUserDetails(user, token).then(res => {
+
+                        var {response} = res
+
+                        message.success(response)
 
                     }).catch(err => {
                         const {response} = err;
@@ -51,11 +59,13 @@ const Login = () => {
                 }).catch(err => {
                     const {response} = err;
 
+                    console.log(err);
+
                     if(response.data){
 
                         const {message: sentMessage} = response.data;
 
-                        if(message){
+                        if(sentMessage){
 
                             message.error(sentMessage)
                         }else{
@@ -66,7 +76,6 @@ const Login = () => {
                     }else{
                         message.error("Something went wrong! Please try again later")
                     }
-                    console.log(err);
                 }).finally(()=>{
                     setLoading(false);
                 });
@@ -78,6 +87,13 @@ const Login = () => {
         }
 
     }, [formState, addUserDetails])
+
+    console.log(userState)
+
+    if (userState.isLoggedIn && userState.token !== "" && userState.userData){
+
+        return <Navigate to="/account" />;
+    }
 
   return (
     <>

@@ -1,72 +1,100 @@
 import { Button, Row } from 'antd'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import api from '../api/api';
 
 const InvestmentRequest = () => {
-  return (
-    <>
-    
-        <Row justify="space-between" className='request-content'>
 
-            <h1>Investment Request</h1>
+    const [loaded, setLoaded] = useState(false)
+    const [err, setErr] = useState(false);
+    const [request, setRequest] = useState([]);
 
-        </Row>
+    useEffect(() => {
 
-        <Row justify="center" className='request-table request-content'>
+        api.get('/admin/bonus/request')
+            .then(res => {
+                setRequest(res.data);
+            }).catch(err => {
+                setErr(true);
+                console.log(err)
+            }).finally(() => {
+                setLoaded(true)
+            })
 
-            <table>
+    }, [])
 
-                <thead>
-                    <tr>
-                        <td>S/N</td>
-                        <td>Email</td>
-                        <td>Amount (&#8358;)</td>
-                        <td>Account Name</td>
-                        <td>Bank Name</td>
-                        <td>Account Name</td>
-                        <td>Actions</td>
-                    </tr>
-                </thead>
+    if (!loaded) {
 
-                <tbody>
+        return <p>loading...</p>;
+    }
 
-                    <tr>
-                        <td>1</td>
-                        <td>isaacseun63@gmail.com</td>
-                        <td>10000</td>
-                        <td>3150686249</td>
-                        <td>First Bank</td>
-                        <td>Omonimewa Isaac Duyilemi</td>
-                        <td>
-                            <div className='action-btn'>
-                                <Button className="edit-button">Approve</Button>
-                                <Button className="delete-button">Decline</Button>
-                            </div>
-                        </td>
-                    </tr>
+    if (loaded && err) {
+        return <p>Error fetching investment request</p>
+    }
 
-                    <tr>
-                        <td>1</td>
-                        <td>isaacseun63@gmail.com</td>
-                        <td>10000</td>
-                        <td>3150686249</td>
-                        <td>First Bank</td>
-                        <td>Omonimewa Isaac Duyilemi</td>
-                        <td>
-                            <div className='action-btn'>
-                                <Button className="edit-button">Approve</Button>
-                                <Button className="delete-button">Decline</Button>
-                            </div>
-                        </td>
-                    </tr>
+    return (
+        <>
 
-                </tbody>
+            <Row justify="space-between" className='request-content'>
 
-            </table>
+                <h1>Investment Withdrawal Request</h1>
 
-        </Row>
-    
-    </>
-  )
+            </Row>
+
+            <Row justify="center" className='request-table request-content'>
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <td>S/N</td>
+                            <td>Email</td>
+                            <td>Amount (&#8358;)</td>
+                            <td>Account Name</td>
+                            <td>Bank Name</td>
+                            <td>Account Name</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {request.length < 1 ? (
+                            <tr>
+                                <td colSpan={20}>No withdrawal requested at the present moment</td>
+                            </tr>
+                        ) : (
+
+                            request.map((reques, index) => {
+                                return (
+                                    <tr>
+                                        <td>1</td>
+                                        <td>isaacseun63@gmail.com</td>
+                                        <td>10000</td>
+                                        <td>3150686249</td>
+                                        <td>First Bank</td>
+                                        <td>Omonimewa Isaac Duyilemi</td>
+                                        <td>
+                                            <div className='action-btn'>
+                                                <Button className="edit-button">Approve</Button>
+                                                <Button className="delete-button">Decline</Button>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                )
+
+                            })
+
+                        )}
+
+                    </tbody>
+
+                </table>
+
+            </Row>
+
+        </>
+    )
 }
 
 export default InvestmentRequest

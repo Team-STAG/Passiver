@@ -1,10 +1,15 @@
-import { Button } from 'antd'
+import { Button, message } from 'antd'
 import React from 'react'
 import { FaBars, FaCog, FaHome, FaMoneyBillWave, FaQuestionCircle, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import useUserContext from '../context/UserContext'
 
 const LoggedInNav = ({navShrinked}) => {
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const { logOutUser } = useUserContext();
+
   return (
     <>
     
@@ -87,7 +92,7 @@ const LoggedInNav = ({navShrinked}) => {
                     
                     </li>
 
-                    <li className={location.pathname === "/account/subscriptions" && "active-link"}>
+                    <li className={location.pathname === "/account/subscriptions" && "active-link"? "active-link" : ""}>
                         
                         <Link to="/account/subscriptions">
                         
@@ -122,7 +127,17 @@ const LoggedInNav = ({navShrinked}) => {
 
                     <li className='logout-link'>
                         
-                        <Link>
+                        <Link onClick={()=>{
+
+                            logOutUser().then(res => {
+                                message.success(res?.response);
+                                navigate("/login")
+                            }).catch(err => {
+                                console.log(err)
+                                message.error(err?.response)
+                            });
+
+                        }}>
                         
                             <span className="icon"><FaSignOutAlt /></span>
                             {!navShrinked && <span className="text">Logout</span>}

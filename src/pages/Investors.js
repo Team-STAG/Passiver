@@ -1,12 +1,38 @@
 import { Row } from 'antd'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import api from '../api/api'
 
 import "../assets/styles/investors.css"
 
 const Investors = () => {
 
     const [searchValue, setSearchValue] = useState("")
+    const [users, setUsers] = useState([])
+    const [loaded, setLoaded] = useState(false)
+    const [err, setErr] = useState(false)
+
+    useEffect(()=>{
+
+        api.get("/admin/users")
+        .then(res => {
+            setUsers(res.data)
+        }).catch(err =>{
+            setErr(true)
+            console.log(err)
+
+        }).finally(()=>{
+            setLoaded(true)
+        })
+    }, [])
+
+    if(!loaded){
+        return <p>loading...</p>
+    }
+
+    if(loaded && err) {
+        return <p>Unable to fetch user data</p>
+    }
 
   return (
     <>
@@ -44,39 +70,44 @@ const Investors = () => {
 
                 <tbody>
 
-                    <tr>
+                    {users.length < 1? (
+                        <tr>
+                            <td colSpan={20}>No users at the present moment</td>
 
-                        <td>1</td>
-                        <td>Duyil Ayomid</td>
-                        <td>isaacseun63@gmail.com</td>
-                        <td>+2349036634645</td>
-                        <td>3000</td>
-                        <td>
-                            <span className="investment-tag">Package Name</span>
-                        </td>
+                        </tr>
+                    ): (
 
-                        <td>
-                            <Link to="/account/users/userid">View Details</Link>
-                        </td>
+                        users.map((user, index) => {
+                            console.log(user)
+                            var sn = (index + 1)
 
-                    </tr>
+                            var {name, email, phoneNumber, userBalance, investments, id} = user;
 
-                    <tr>
+                            return(
 
-                        <td>1</td>
-                        <td>Duyil Ayomid</td>
-                        <td>isaacseun63@gmail.com</td>
-                        <td>+2349036634645</td>
-                        <td>3000</td>
-                        <td>
-                            No active package
-                        </td>
+                                <tr key={index}>
 
-                        <td>
-                            <Link to="/account/users/userid">View Details</Link>
-                        </td>
+                                    <td>{sn}</td>
+                                    <td>{name}</td>
+                                    <td>{email}</td>
+                                    <td>{phoneNumber}</td>
+                                    <td>{userBalance}</td>
+                                    <td>
+                                        <span className="investment-tag">{investments.length}</span>
+                                    </td>
 
-                    </tr>
+                                    <td>
+                                        <Link to={"/account/users/" + id}>View Details</Link>
+                                    </td>
+
+                                </tr>
+                            )
+
+                        })
+
+                    )}
+
+
 
                 </tbody>
 

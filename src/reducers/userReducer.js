@@ -1,7 +1,7 @@
 export const initialUserValue = {
     token: "",
     isLoggedIn: false,
-    userData: {}
+    userData: null
 }
 
 const userReducer = (state, action)=>{
@@ -11,9 +11,10 @@ const userReducer = (state, action)=>{
         case "password-reset":
             return state
 
-        case "add-token":
+        case "add_token":
 
         if(action.payload){
+
             
             return {
                 ...state,
@@ -23,17 +24,21 @@ const userReducer = (state, action)=>{
 
         break;
 
-        case "add-details":
+        case "add_details":
 
             if (action.payload) {
 
-                return {
+                return ({
                     ...state,
-                    userData: action.payload
-                }
+                    userData: action.payload,
+                    isLoggedIn: true
+                })
             }
 
             break;
+
+        case "remove_details":
+            return initialUserValue;
 
         default:
             return state;

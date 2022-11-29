@@ -3,8 +3,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import "../assets/styles/subscription.css"
+import useUserContext from '../context/UserContext'
 
 const Subscription = () => {
+    const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const { investments } = userData || {};
   return (
     <>
     
@@ -34,33 +40,42 @@ const Subscription = () => {
 
                 <tbody>
 
-                    {/* <tr>
-                        <td colspan="20" className="empty-data">No Purchased plan Yet</td>
-                    </tr> */}
+                      {investments.length > 0? (
 
-                    <tr>
-                        <td>1</td>
-                        <td>coffee</td>
-                        <td>10,000</td>
-                        <td>15,000</td>
-                        <td>12-Aug-2022</td>
-                        <td>Investing</td>
-                        <td>
-                            <Button className='withdraw-button'>WithDraw</Button>
-                        </td>
-                    </tr>
+                        investments.map((investment, index)=>{
 
-                    <tr>
-                        <td>2</td>
-                        <td>coffee</td>
-                        <td>10,000</td>
-                        <td>15,000</td>
-                        <td>12-Aug-2022</td>
-                        <td>Investing</td>
-                        <td>
-                            <Button className='withdraw-button' disabled>WithDraw</Button>
-                        </td>
-                    </tr>
+                            var { status, createdAt } = investment
+                            var { name, price, maxRate } = investment?.package
+                            var sn = (index + 1);
+                            var profit = parseInt((parseInt(maxRate) / 100) * price);
+                            
+                            console.log(investments)
+                            return(
+
+                                <tr key={index}>
+                                    <td>{sn}</td>
+                                    <td>{name}</td>
+                                    <td>{price}</td>
+                                    <td>{profit}</td>
+                                    <td>{createdAt}</td>
+                                    <td>{status}</td>
+                                    <td>
+                                        <Button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'>WithDraw</Button>
+                                    </td>
+                                </tr>
+                                
+                            )
+                        })
+
+                      ) : (
+
+                        <tr>
+                            <td colspan = "20" className = "empty-data">No Purchased plan Yet</td>
+                        </tr>
+
+                      )}
+
+                    
 
                 </tbody>
 

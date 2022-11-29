@@ -1,15 +1,118 @@
-import { Button, Col, Row } from 'antd'
-import React, { useState } from 'react'
+import { Button, Col, message, Row } from 'antd'
+import React, { useEffect, useState, useCallback } from 'react'
+import { useParams } from 'react-router-dom'
+import api from '../api/api'
 
 import "../assets/styles/userDetails.css"
 
 const UserDetails = () => {
+
+    const {id} = useParams();
 
     const [packageFormState, setPackageFormState] = useState({
         packageName: "",
         packageId: "",
         vendorId: "",
     })
+
+    const [investorsDetails, setInvestorsDetails] = useState({})
+    const [loaded, setLoaded] = useState(false)
+    const [err, setErr] = useState(false)
+    const [packagesList, setPackages] = useState([])
+    const [vendors, setVendors] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    var { name, email, phoneNumber, userBalance, createdAt, accountDetails, investments, referals} = investorsDetails;
+
+    console.log(investorsDetails)
+
+    var {accountNo, name: accountName, bank} = accountDetails || {};
+
+
+    const getUserDetails = useCallback(() => {
+
+        setLoaded(false)
+        setErr(false)
+
+        api.get(`/admin/user/${id}`)
+            .then(res => {
+                setInvestorsDetails(res.data);
+                // console.log(res)
+            }).catch(err => {
+                console.log(err)
+                setErr(true)
+
+            }).finally(() => {
+                setLoaded(true)
+            })
+
+    }, [id])
+
+    const activatePackage = useCallback(() => {
+        var {packageId, vendorId} = packageFormState;
+        if (vendorId !== "" && packageId !== "") {
+            setLoading(true);
+
+            api.post("/admin/createInvest", { userId: id, packageId, vendorId })
+                .then(res => {
+                    message.success("Package activated successfully for" + email)
+                    getUserDetails()
+
+                    setPackageFormState({
+                        packageName: "",
+                        packageId: "",
+                        vendorId: "",
+
+                    })
+                }).catch(err => {
+                    var { data } = err.response;
+
+                    if (data.message) {
+                        message.error(data.message);
+
+                    } else {
+                        message.error("Unable to activate packages! please try again later");
+                    }
+                }).finally(() => {
+                    setLoading(false);
+
+                })
+
+        } else {
+            message.error("Please select the package details")
+        }
+
+    }, [id, getUserDetails, email, packageFormState])
+
+
+    useEffect(()=>{
+
+        getUserDetails();
+
+        api.get("/packages")
+        .then(res => {
+            setPackages(res.data)
+        })
+
+        api.get("/vendor")
+            .then(res => {
+                setVendors(res.data)
+            })
+
+    }, [getUserDetails])
+
+    
+
+    if(!loaded){
+        return <p>Loading...</p>
+    }
+
+    if(loaded && err){
+
+        return <p>Unable to fetch user details</p>
+
+    }
+
 
   return (
     <>
@@ -36,11 +139,11 @@ const UserDetails = () => {
 
                 <tbody>
                     <tr>
-                        <td>Gold</td>
-                        <td>2000</td>
-                        <td>200</td>
-                        <td>2%</td>
-                        <td>Sept-4-2022</td>
+                        <td>{name}</td>
+                        <td>{email}</td>
+                        <td>{phoneNumber}</td>
+                        <td>{userBalance}</td>
+                        <td>{createdAt}</td>
                     
                     </tr>
 
@@ -54,6 +157,7 @@ const UserDetails = () => {
                 <h2>Bank Details</h2>
                 <table>
                 <thead>
+
                     <tr>
                     <td>Bank Name</td>
                     <td>Account Number</td>
@@ -63,12 +167,18 @@ const UserDetails = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                    <td>First Bank</td>
-                    <td>3150686249</td>
-                    <td>Omonimewa Isaac Duyilemi</td>
-                    
-                    </tr>
+                          {accountDetails ? (
+                              <tr>
+                                  <td>{bank}</td>
+                                  <td>{accountNo}</td>
+                                  <td>{accountName}</td>
+
+                              </tr>
+                          ) : (
+                              <tr>
+                                  <td colSpan={20}>User is yet to add his or her account details</td>
+                              </tr>
+                          )}
                 </tbody>
             </table>
             </Col>
@@ -90,27 +200,38 @@ const UserDetails = () => {
                 </thead>
 
                 <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td>Gold</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>2%</td>
-                    <td>Sept-4-2022</td>
-                    <td>Completed</td>
-                    
-                    </tr>
 
-                    <tr>
-                    <td>2</td>
-                    <td>Gold</td>
-                    <td>2000</td>
-                    <td>200</td>
-                    <td>2%</td>
-                    <td>Sept-4-2022</td>
-                    <td>Completed</td>
-                    
-                    </tr>
+                    {investments.length < 1 ? (
+                        <tr>
+
+                            <td colSpan={20}>No active investment for this user</td>
+
+                        </tr>
+                    ) : (
+
+                        investments.map((investment, index)=>{
+                            var {status, createdAt} = investment
+                            var {name, price, vendorFee, dailyRate} = investment?.package
+                            var sn = (index + 1);
+
+                            return(
+
+                                <tr key={index}>
+                                    <td>{sn}</td>
+                                    <td>{name}</td>
+                                    <td>{price}</td>
+                                    <td>{vendorFee}</td>
+                                    <td>{dailyRate}%</td>
+                                    <td>{createdAt}</td>
+                                    <td>{status}</td>
+                                
+                                </tr>
+                            )
+                        })
+
+
+                    )}
+
                 </tbody>
             </table>
             </Col>
@@ -123,30 +244,36 @@ const UserDetails = () => {
                     <tr>
                     <td>S/N</td>
                     <td>Email</td>
-                    <td>Bonus</td>
                     <td>Referred on</td>
-                    <td>Status</td>
                     </tr>
                 </thead>
 
                 <tbody>
-                    <tr>
-                    <td>1</td>
-                    <td>isaacseun63@gmail.com</td>
-                    <td>2000</td>
-                    <td>Sept-4-2022</td>
-                    <td>Claimed</td>
-                    
-                    </tr>
 
-                    <tr>
-                    <td>1</td>
-                    <td>isaacseun63@gmail.com</td>
-                    <td>2000</td>
-                    <td>Sept-4-2022</td>
-                    <td>Claimed</td>
+                    {referals?.length < 1? (
+                        <tr>
+
+                            <td colSpan={20}>This user haven't referred anyone</td>
+
+                        </tr>
+                    ): (
+                        referals?.map((referral, index) => {
+                            var {email, createdAt} = referral;
+                            var sn = (index + 1)
+
+                            return(
+
+                                <tr key={index}>
+                                <td>{sn}</td>
+                                <td>{email}</td>
+                                <td>{createdAt}</td>
+                                
+                                </tr>
+                            )
+                        })
+                    )}
+
                     
-                    </tr>
 
                     
                 </tbody>
@@ -171,7 +298,14 @@ const UserDetails = () => {
                         })
                     }}>
                         <option value="">--Chose a vendor--</option>
-                        <option value="+2349036634645">+2349036634645</option>
+
+                        {vendors.map((vendor, index) => {
+                            var {phoneNumber, id} = vendor
+                            return(
+                                
+                                <option key={index} value={id}>{phoneNumber}</option>
+                            )
+                        })}
                     </select>
                 </div>
 
@@ -186,12 +320,20 @@ const UserDetails = () => {
                         })
                     }}>
                         <option value="">--Chose a package--</option>
-                        <option value="gold">Gold</option>
+                          {packagesList.map((pack, index) => {
+                            const {name, id} = pack
+                            return(
+
+                                <option key={index} value={id}>{name}</option>
+                            )
+                          })}
                     </select>
                 </div>
 
                 <div className='form-content'>
-                    <Button className='submit-button'>
+                      <Button loading={loading} onClick={()=>{
+                        activatePackage();
+                      }} className='submit-button'>
                         Activate
                     </Button>
                 </div>

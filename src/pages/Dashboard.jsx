@@ -1,10 +1,70 @@
-import { Button, Col, Row } from 'antd'
-import React from 'react'
-import { FaCashRegister, FaIcons } from 'react-icons/fa'
+import { Button, Col, message, Row } from 'antd'
+import React, { useCallback } from 'react'
+import { FaCashRegister, FaIcons, FaMoneyBill } from 'react-icons/fa'
+import { useNavigate } from 'react-router-dom'
+import api from '../api/api'
 
 import "../assets/styles/dashboard.css"
+import useUserContext from '../context/UserContext'
 
 const Dashboard = () => {
+
+  var navigate = useNavigate();
+  const { userState, addUserDetails } = useUserContext();
+  
+  const {userData} = userState;
+
+  const { userBalance, bonusBalance, name, investments, referalCode, bonuses, accountDetails, requestBonusWithdrawal } = userData || {};
+
+  console.log(userData);
+
+  const processBonusRequest = useCallback(() => {
+
+    var ids = bonuses.map(bonus => {
+      var {id} = bonus
+
+      return(
+        id
+
+      )
+
+      
+    })
+    api.post("/bonus/request", {ids})
+    .then(res => {
+      message.success("Bonus request processed");
+      // console.log(res)
+      var data = {
+        ...userData,
+        ...res.data[1]
+      }
+      addUserDetails(data);
+    }).catch(err => {
+      
+      console.log(err);
+
+      var {data} = err.response
+
+      if(data.message){
+
+        message.error(data.message)
+      }else{
+        message.error("Unable to process bonus withdrawal request")
+      }
+    })
+    if (accountDetails){
+
+
+
+    }else{
+
+      message.error("Please add your account details on the settings page before you continue")
+
+    }
+
+
+  }, [bonuses, addUserDetails, userData, accountDetails])
+
   return (
     
     <>
@@ -12,7 +72,7 @@ const Dashboard = () => {
       <Row justify="space-between" className='dashboard-content'>
 
         <Col span={9} className="dashboard-title">
-          <h1>Welcome David</h1>
+          <h1>Welcome {name}</h1>
           <p>Subscribe and earn!</p>
         </Col>
         
@@ -20,8 +80,25 @@ const Dashboard = () => {
 
           <div className='package-details'>
 
-            <h3>Active Package</h3>
-            <p>Coffee Bundle</p>
+            <h3>Active Subscriptions</h3>
+
+            <div style={{display: "flex", flexWrap: "wrap", marginTop: "10px"}}>
+
+              {investments.map((invest, index)=>{
+
+                var {name} = invest?.package
+
+
+                return(
+
+                  
+                  <span style={{background: "#B92BB3", borderRadius: "5px", padding: "5px", marginRight: "7px", color: "white", fontSize: "14px"}}>{name}</span>
+
+                )
+
+              })}
+            </div>
+
 
           </div>
 
@@ -44,7 +121,7 @@ const Dashboard = () => {
 
           <div className='dashboard-cards-details balance-card-details'>
             
-            <h2>&#8358;0</h2>
+            <h2>&#8358;{userBalance}</h2>
             <h2><FaCashRegister /></h2>
 
           </div>
@@ -57,19 +134,23 @@ const Dashboard = () => {
 
           <div className='dashboard-cards-details'>
             
-            <h2>&#8358;0</h2>
+            <h2>&#8358;{parseInt(bonusBalance)}</h2>
 
           </div>
+
+          {!requestBonusWithdrawal && <Button style={{color: "green", fontSize: "17px"}} onClick={processBonusRequest}><FaMoneyBill /></Button>}
 
           <p className='subtitle'><span className='special'>*</span> Refer and earn 35% of your referral's subscription</p>
 
         </Col>
 
-        <Col span={7} className="dashboard-cards">
+        <Col span={7} className="dashboard-cards" onClick={()=>{
+          navigate("/account/subscribe")
+        }}>
 
           <h3>Subscribe</h3>
 
-          <p className='description'>Subscribe to any package and secure your future now.</p>
+          <p className='description'>Subscribe and secure your future now.</p>
 
         </Col>
 
@@ -79,13 +160,47 @@ const Dashboard = () => {
 
       <Row justify="space-between" className='dashboard-content'>
 
-        <Col span={24} className="dashboard-referral">
+        <Col span={24} className="dashboard-referral" onClick={ async ()=>{
+          if (navigator.share) {
+
+            navigator.share({
+
+              title: "Passivers referral link",
+
+              url: `https://passiveeer.com/signup?ref=${referalCode}`,
+
+              text:  `https://passiveeer.com/signup?ref=${referalCode}`
+
+            })
+
+              .then(() => {
+                
+              })
+
+              .catch((error) => {
+                message.error("Sharing failed")
+              })
+
+
+          }else{
+            try {
+              await navigator.clipboard.writeText(`https://passiveeer.com/signup?ref=${referalCode}`);
+              message.success("Referral link copied successfully")
+            } catch (err) {
+              message.error("Unable to copy link! please copy it manually")
+              
+            }
+
+          }
+
+
+        }}>
 
           <div className='referral-content'>
 
             <h3>Referral Link</h3>
 
-            <p>https://passiveeer.com/signup?ref=psfuib887</p>
+            <p>https://passiveeer.com/signup?ref={referalCode}</p>
 
           </div>
 
