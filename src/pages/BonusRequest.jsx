@@ -1,12 +1,11 @@
 import { Button, Row } from 'antd'
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import api from '../api/api';
 
 const BonusRequest = () => {
     const [loaded, setLoaded] = useState(false)
     const [err, setErr] = useState(false);
     const [request, setRequest] = useState([]);
-    const [users, setUsers] = useState([])
 
     useEffect(()=>{
 
@@ -22,25 +21,6 @@ const BonusRequest = () => {
 
 
     }, [])
-
-    const fetchData = useCallback((id)=>{
-
-        if(id){
-
-            api.get(`/admin/user/${id}`)
-                .then((res)=>{
-
-                    // setUsers(prevState => {
-                    //     return [...prevState, res.data]
-                    // })
-
-                })
-        }
-
-
-    }, [])
-
-    console.log(users)
 
 
     
@@ -89,10 +69,8 @@ const BonusRequest = () => {
                       ): (
 
                         request.map((reques, index) => {
-                            var {id, email} = reques;
+                            var { email} = reques;
                             var sn = (index + 1);
-
-                            fetchData(id)
                             return(
                                 <tr>
                                     <td>{sn}</td>
