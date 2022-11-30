@@ -2,10 +2,10 @@ import { Col, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SiteData } from '../data'
-import {FaFacebookSquare, FaInstagramSquare, FaTwitterSquare} from "react-icons/fa"
+import { FaInstagramSquare, FaTelegram, FaWhatsapp} from "react-icons/fa"
 
 const Footer = () => {
-    const {siteName, address, phoneNumber, facebook, instagram, twitter} = SiteData;
+    const {siteName, address, phoneNumber, telegram, instagram, whatsapp} = SiteData;
   return (
     <>
     
@@ -47,8 +47,8 @@ const Footer = () => {
 
                         <ul className='social-links'>
                             
-                            <li><a href={facebook} target="_blank" rel="noreferrer"><FaFacebookSquare /></a></li>
-                            <li><a href={twitter} target="_blank" rel="noreferrer"><FaTwitterSquare /></a></li>
+                              <li><a href={whatsapp} target="_blank" rel="noreferrer"><FaWhatsapp /></a></li>
+                              <li><a href={telegram} target="_blank" rel="noreferrer"><FaTelegram /></a></li>
                             <li><a href={instagram} target="_blank" rel="noreferrer"><FaInstagramSquare /></a></li>
 
                         </ul>
