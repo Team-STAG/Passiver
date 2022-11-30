@@ -2,10 +2,10 @@ import { Col, Row } from 'antd'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { SiteData } from '../data'
-import { FaInstagramSquare, FaTelegram, FaWhatsapp} from "react-icons/fa"
+import {  FaTelegram, FaWhatsapp} from "react-icons/fa"
 
 const Footer = () => {
-    const {siteName, address, phoneNumber, telegram, instagram, whatsapp} = SiteData;
+    const {siteName, address, phoneNumber, telegram, whatsapp} = SiteData;
   return (
     <>
     
@@ -49,7 +49,7 @@ const Footer = () => {
                             
                               <li><a href={whatsapp} target="_blank" rel="noreferrer"><FaWhatsapp /></a></li>
                               <li><a href={telegram} target="_blank" rel="noreferrer"><FaTelegram /></a></li>
-                            <li><a href={instagram} target="_blank" rel="noreferrer"><FaInstagramSquare /></a></li>
+                            {/* <li><a href={instagram} target="_blank" rel="noreferrer"><FaInstagramSquare /></a></li> */}
 
                         </ul>
 
