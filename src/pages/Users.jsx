@@ -29,7 +29,12 @@ const Users = () => {
 
       .then(res => {
 
-        addUserDetails(res.data)
+        if(!userState.userData || !userState.isLoggedIn){
+
+          addUserDetails(res.data)
+
+        }
+
 
       }).catch(err => {
 
@@ -48,11 +53,12 @@ const Users = () => {
 
       })
 
-  }, [addUserDetails, logOutUser])
+  }, [addUserDetails,userState, logOutUser])
 
   useEffect(()=>{
 
     if(localStorage.getItem("user_token")){
+
   
       fetchUserDetails()
   
@@ -60,7 +66,7 @@ const Users = () => {
     }else{
       window.location.href = window.location.origin + "/login";
     }
-  }, [fetchUserDetails])
+  }, [fetchUserDetails, userState])
 
   if (newtworkErr){
     return <Row justify="center" style={{height: "100vh", alignItems: "center"}}>

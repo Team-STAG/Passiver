@@ -2,12 +2,11 @@ import { Button, message } from 'antd'
 import React from 'react'
 import { FaCog, FaHome, FaMoneyBillWave, FaQuestionCircle, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
 import { MdClose } from 'react-icons/md'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import useUserContext from '../context/UserContext'
 
 const LoggedInNav = ({ navShrinked, setHeaderOpened, headerOpened }) => {
     const location = useLocation();
-    const navigate = useNavigate();
 
     const { logOutUser, userState } = useUserContext();
 
@@ -20,7 +19,7 @@ const LoggedInNav = ({ navShrinked, setHeaderOpened, headerOpened }) => {
 
             
             <div className='nav-header'>
-                <Link to="/" className="logo-text">passiveeer</Link>
+                <Link to="/" className="logo-text">Passiveeer</Link>
 
                   {headerOpened && <Button onClick={()=>{
                       setHeaderOpened(false)
@@ -137,7 +136,6 @@ const LoggedInNav = ({ navShrinked, setHeaderOpened, headerOpened }) => {
 
                             logOutUser().then(res => {
                                 message.success(res?.response);
-                                navigate("/login")
                             }).catch(err => {
                                 console.log(err)
                                 message.error(err?.response)

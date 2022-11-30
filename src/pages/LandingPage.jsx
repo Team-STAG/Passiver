@@ -59,7 +59,7 @@ const LandingPage = () => {
                         <Col span={6} lg={{span: 6}} md={{span: 7}} sm={{span: 7}} xs={{span: 24}} className="reason-card">
                             <h3 className='title'>35% Referral bonus</h3>
 
-                            <p>Get back 50% of whatever you invested over a period of 3 months</p>
+                            <p>Earn bonuses on referrals when you refer someone to invest with us</p>
                         </Col>
                     </Row>
 
@@ -150,7 +150,7 @@ const LandingPage = () => {
 
             </Row>  
 
-            <Row justify="center" className='earners-container'>
+            {/* <Row justify="center" className='earners-container'>
 
                 <Col span={22}>
 
@@ -244,7 +244,7 @@ const LandingPage = () => {
 
                 </Col>
 
-            </Row>
+            </Row> */}
 
             <Row justify="center" className="landing-page-ad" id="contact">
                 <Col span={22}>

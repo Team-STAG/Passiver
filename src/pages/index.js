@@ -23,5 +23,6 @@ import Vendors from "./Vendors";
 import AddVendors from "./AddVendors";
 import EditVendors from "./EditVendors";
 import UserDetails from "./UserDetails";
+import PrivacyPolicy from "./PrivacyPolicy";
 
-export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList, Vendors, AddVendors, EditVendors, UserDetails};
+export { LandingPage, ErrorPage, Users, Dashboard, Subscription, Transaction, Packages, Settings, Login, Confirm, Change, Investors, AddPackages, EditPackage, Request, BonusRequest, WithdrawalRequest, InvestmentRequest, Signup, Subscribe, VendorList, Vendors, AddVendors, EditVendors, UserDetails, PrivacyPolicy };
