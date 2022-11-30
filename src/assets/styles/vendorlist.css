@@ -54,6 +54,9 @@ a {
 .vendor-list-content:not(:first-child) {
   margin-top: 40px;
 }
+.vendor-list-content .vendor-list {
+  margin-top: 20px;
+}
 .vendor-list-content .vendor-list .vendor-card {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
   border-radius: 10px;

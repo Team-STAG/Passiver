@@ -1,16 +1,25 @@
 import { Row } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import api from '../api/api'
 
 import "../assets/styles/investors.css"
+import useUserContext from '../context/UserContext'
+import { formatPrice } from '../function/functions'
 
 const Investors = () => {
+
+        const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const {role } = userData || {};
 
     const [searchValue, setSearchValue] = useState("")
     const [users, setUsers] = useState([])
     const [loaded, setLoaded] = useState(false)
     const [err, setErr] = useState(false)
+    const [newUser, setNewUser] = useState([]);
 
     useEffect(()=>{
 
@@ -25,6 +34,23 @@ const Investors = () => {
             setLoaded(true)
         })
     }, [])
+
+    useEffect(()=>{
+
+        if(searchValue === ""){
+            setNewUser(users)
+        }else{
+            var reg=  new RegExp(searchValue)
+            var use = users.filter(user => reg.test(user?.email) || reg.test(user?.phoneNumber) || reg.test(user?.name))
+
+            setNewUser(use);
+        }
+
+    }, [searchValue, users])
+
+    if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account" replace />
+    }
 
     if(!loaded){
         return <p>loading...</p>
@@ -53,7 +79,7 @@ const Investors = () => {
             
         </Row>
 
-        <Row justify="center" className="investors-table investor-content">
+        <Row justify="center" className="investors-table investor-content overflow-table">
             <table>
 
                 <thead>
@@ -77,7 +103,7 @@ const Investors = () => {
                         </tr>
                     ): (
 
-                        users.map((user, index) => {
+                        newUser.map((user, index) => {
                             console.log(user)
                             var sn = (index + 1)
 
@@ -91,7 +117,7 @@ const Investors = () => {
                                     <td>{name}</td>
                                     <td>{email}</td>
                                     <td>{phoneNumber}</td>
-                                    <td>{userBalance}</td>
+                                    <td>{formatPrice(parseInt(userBalance))}</td>
                                     <td>
                                         <span className="investment-tag">{investments.length}</span>
                                     </td>

@@ -1,9 +1,10 @@
 import { Button, message, Row } from 'antd'
 import React, { useCallback, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import api from '../api/api'
 
 import "../assets/styles/addVendors.css"
+import useUserContext from '../context/UserContext'
 
 const EditVendors = () => {
 
@@ -47,6 +48,12 @@ const EditVendors = () => {
             })
     }, [id])
 
+        const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const {  role } = userData || {};
+
     const saveVendorDetail = useCallback(()=>{
         var {phoneNumber} = vendorState
 
@@ -79,6 +86,10 @@ const EditVendors = () => {
             console.log(phoneNumber);
         }
     }, [vendorState, id, navigate])
+
+    if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account" replace />
+    }
 
     if(!loaded){
         return <p>loading...</p>

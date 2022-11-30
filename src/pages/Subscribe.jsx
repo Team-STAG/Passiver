@@ -1,14 +1,22 @@
 import { Col, Row } from 'antd'
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 import api from '../api/api'
 
 import "../assets/styles/subscribe.css"
+import useUserContext from '../context/UserContext'
+import { formatPrice } from '../function/functions'
 
 const Subscribe = () => {
     const [plans, setPlans] = useState([]);
     const [loaded, setLoaded] = useState(false)
     const [err, setErr] = useState(false)
+
+        const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const { role } = userData || {};
 
     useEffect(() => {
 
@@ -23,6 +31,10 @@ const Subscribe = () => {
         })
 
     }, [])
+
+    if(role.toLowerCase() === "admin"){
+        return <Navigate to="/account/packages" replace />
+    }
 
     if(!loaded){
         return <Row justify="center">
@@ -59,14 +71,14 @@ const Subscribe = () => {
                 var {name, price, vendorFee} = plan
                 return(
 
-                <Col key={index} span={7} className="subscribe-card">
+                <Col key={index} span={7} lg={{span: 7}} md={{span: 7}} xs={{span: 24}} className="subscribe-card">
                         <h2 className="subscribe-title">{name}</h2>
                     
                     <p className="subscribe-price-title">Price:</p>
-                        <h1 className="subscribe-price">&#8358;{price}</h1>
+                        <h1 className="subscribe-price">&#8358;{formatPrice(price)}</h1>
 
                     <p>Fee:</p>
-                        <p className="subscribe-fee">&#8358;{vendorFee}</p>
+                        <p className="subscribe-fee">&#8358;{formatPrice(vendorFee)}</p>
                         <Link className="button" to={"/account/subscribe/" + name}>Subscribe</Link>
                 </Col>
 

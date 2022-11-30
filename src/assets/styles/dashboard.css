@@ -54,6 +54,9 @@ a {
 .dashboard-content:not(:first-child) {
   margin-top: 40px;
 }
+.dashboard-content .dashboard-title {
+  margin-bottom: 20px;
+}
 .dashboard-content .dashboard-title h1 {
   font-weight: bold;
 }
@@ -90,6 +93,7 @@ a {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   padding: 20px;
+  margin-bottom: 20px;
 }
 .dashboard-content .dashboard-cards h3 {
   font-weight: bold;
@@ -150,4 +154,14 @@ a {
 }
 .dashboard-content .dashboard-referral .referral-action .referral-link-copy:hover, .dashboard-content .dashboard-referral .referral-action .referral-link-copy:focus {
   border: none;
+}
+@media only screen and (max-width: 575px) {
+  .dashboard-content .dashboard-title {
+    text-align: center;
+  }
+  .dashboard-content .dashboard-referral {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }/*# sourceMappingURL=dashboard.css.map */

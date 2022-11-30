@@ -6,6 +6,7 @@ import api from '../api/api'
 
 import "../assets/styles/dashboard.css"
 import useUserContext from '../context/UserContext'
+import { formatPrice } from '../function/functions'
 
 const Dashboard = () => {
 
@@ -71,12 +72,12 @@ const Dashboard = () => {
     
       <Row justify="space-between" className='dashboard-content'>
 
-        <Col span={9} className="dashboard-title">
+        <Col span={9} lg={{span: 9}} md={{span: 9}} sm={{span: 11}} xs={{span: 24}} className="dashboard-title">
           <h1>Welcome {name}</h1>
           <p>Subscribe and earn!</p>
         </Col>
         
-        <Col span={7} className="dashboard-packages">
+        <Col span={7} lg={{span: 7}} md={{span: 8}} sm={{span: 11}} xs={{span: 24}} className="dashboard-packages">
 
           <div className='package-details'>
 
@@ -115,26 +116,26 @@ const Dashboard = () => {
 
       <Row justify="space-between" className='dashboard-content'>
 
-        <Col span={7} className="dashboard-cards">
+        <Col span={7} lg={{span: 7}} md={{span: 7}} xs={{span: 24}} className="dashboard-cards">
 
           <h3>Balance</h3>
 
           <div className='dashboard-cards-details balance-card-details'>
             
-            <h2>&#8358;{userBalance}</h2>
+            <h2>&#8358;{formatPrice(parseInt(userBalance))}</h2>
             <h2><FaCashRegister /></h2>
 
           </div>
 
         </Col>
 
-        <Col span={7} className="dashboard-cards">
+        <Col span={7} lg={{span: 7}} md={{span: 8}} xs={{span: 24}} className="dashboard-cards">
 
           <h3>Referral Bonus</h3>
 
           <div className='dashboard-cards-details'>
             
-            <h2>&#8358;{parseInt(bonusBalance)}</h2>
+            <h2>&#8358;{formatPrice(parseInt(bonusBalance))}</h2>
 
           </div>
 
@@ -144,7 +145,7 @@ const Dashboard = () => {
 
         </Col>
 
-        <Col span={7} className="dashboard-cards" onClick={()=>{
+        <Col span={7} lg={{span: 7}} md={{span: 8}} xs={{span: 24}} className="dashboard-cards" onClick={()=>{
           navigate("/account/subscribe")
         }}>
 

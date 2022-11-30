@@ -1,9 +1,11 @@
 import { Button, Col, message, Row } from 'antd'
 import React, { useEffect, useState, useCallback } from 'react'
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import api from '../api/api'
 
 import "../assets/styles/userDetails.css"
+import useUserContext from '../context/UserContext'
+import { formatDate, formatPrice } from '../function/functions'
 
 const UserDetails = () => {
 
@@ -21,6 +23,12 @@ const UserDetails = () => {
     const [packagesList, setPackages] = useState([])
     const [vendors, setVendors] = useState([])
     const [loading, setLoading] = useState(false)
+
+        const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const { role } = userData || {};
 
     var { name, email, phoneNumber, userBalance, createdAt, accountDetails, investments, referals} = investorsDetails;
 
@@ -101,6 +109,10 @@ const UserDetails = () => {
 
     }, [getUserDetails])
 
+    if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account/settings" replace />
+    }
+
     
 
     if(!loaded){
@@ -123,7 +135,7 @@ const UserDetails = () => {
 
         <Row justify="space-between" className="user-details-content">
 
-            <Col span={24} className="packages-table">
+            <Col span={24} className="packages-table overflow-table">
 
                 <h2>User Details</h2>
                 <table>
@@ -142,8 +154,8 @@ const UserDetails = () => {
                         <td>{name}</td>
                         <td>{email}</td>
                         <td>{phoneNumber}</td>
-                        <td>{userBalance}</td>
-                        <td>{createdAt}</td>
+                        <td>{formatPrice(parseInt(userBalance))}</td>
+                        <td>{formatDate(createdAt)}</td>
                     
                     </tr>
 
@@ -152,7 +164,7 @@ const UserDetails = () => {
             </table>
             </Col>
 
-            <Col span={24} className="packages-table">
+              <Col span={24} className="packages-table overflow-table">
 
                 <h2>Bank Details</h2>
                 <table>
@@ -183,7 +195,7 @@ const UserDetails = () => {
             </table>
             </Col>
 
-            <Col span={24} className="packages-table">
+              <Col span={24} className="packages-table overflow-table">
 
                 <h2>Investments</h2>
                 <table>
@@ -222,7 +234,7 @@ const UserDetails = () => {
                                     <td>{price}</td>
                                     <td>{vendorFee}</td>
                                     <td>{dailyRate}%</td>
-                                    <td>{createdAt}</td>
+                                    <td>{formatDate(createdAt)}</td>
                                     <td>{status}</td>
                                 
                                 </tr>
@@ -236,7 +248,7 @@ const UserDetails = () => {
             </table>
             </Col>
 
-            <Col span={24} className="packages-table">
+              <Col span={24} className="packages-table overflow-table">
 
                 <h2>Referrals</h2>
                 <table>
@@ -266,7 +278,7 @@ const UserDetails = () => {
                                 <tr key={index}>
                                 <td>{sn}</td>
                                 <td>{email}</td>
-                                <td>{createdAt}</td>
+                                <td>{formatDate(createdAt)}</td>
                                 
                                 </tr>
                             )

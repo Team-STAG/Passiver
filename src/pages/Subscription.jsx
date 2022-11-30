@@ -1,16 +1,23 @@
 import { Button, Row } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Navigate } from 'react-router-dom'
 
 import "../assets/styles/subscription.css"
 import useUserContext from '../context/UserContext'
+import { formatDate, formatPrice } from '../function/functions'
 
 const Subscription = () => {
     const {userState} = useUserContext();
 
     const { userData } = userState;
 
-    const { investments } = userData || {};
+    const { investments, role } = userData || {};
+
+    console.log(role)
+
+    if(role.toLowerCase() === "admin"){
+        return <Navigate to="/account/packages" replace />
+    }
   return (
     <>
     
@@ -19,7 +26,7 @@ const Subscription = () => {
             <Link to="/account/subscribe" className='button'>Subscribe</Link>
         </Row>
 
-        <Row justify="center" className="subscription-content">
+        <Row justify="center" className="subscription-content overflow-table">
 
             <table>
 
@@ -49,15 +56,14 @@ const Subscription = () => {
                             var sn = (index + 1);
                             var profit = parseInt((parseInt(maxRate) / 100) * price);
                             
-                            console.log(investments)
                             return(
 
                                 <tr key={index}>
                                     <td>{sn}</td>
                                     <td>{name}</td>
-                                    <td>{price}</td>
-                                    <td>{profit}</td>
-                                    <td>{createdAt}</td>
+                                    <td>{formatPrice(price)}</td>
+                                    <td>{formatPrice(profit)}</td>
+                                    <td>{formatDate(createdAt)}</td>
                                     <td>{status}</td>
                                     <td>
                                         <Button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'>WithDraw</Button>

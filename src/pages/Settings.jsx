@@ -2,9 +2,11 @@ import { Button, Col, message, Row} from 'antd'
 import React, { useCallback, useEffect, useState } from 'react'
 import { FaPencilAlt } from 'react-icons/fa'
 import api from '../api/api'
+import ProfileImage from "../assets/images/circle-user-solid.svg"
 
 import "../assets/styles/settings.css"
 import useUserContext from '../context/UserContext'
+import { formatPrice } from '../function/functions'
 
 const Settings = () => {
 
@@ -144,11 +146,13 @@ const Settings = () => {
 
                 <div className="profile-image">
 
+                      <img src={ProfileImage} alt="user-circle" />
+
                 </div>
 
                 <div className="details-container">
                       <h3>{name}</h3>
-                      <p className='details-balance'>&#8358;{userBalance}</p>
+                      <p className='details-balance'>&#8358;{formatPrice(parseInt(userBalance))}</p>
                 </div>
 
             </div>

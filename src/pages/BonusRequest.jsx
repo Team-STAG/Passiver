@@ -1,11 +1,12 @@
 import { Button, Row } from 'antd'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import api from '../api/api';
 
 const BonusRequest = () => {
     const [loaded, setLoaded] = useState(false)
     const [err, setErr] = useState(false);
     const [request, setRequest] = useState([]);
+    const [users, setUsers] = useState([])
 
     useEffect(()=>{
 
@@ -19,7 +20,30 @@ const BonusRequest = () => {
             setLoaded(true)
         })
 
+
     }, [])
+
+    const fetchData = useCallback((id)=>{
+
+        if(id){
+
+            api.get(`/admin/user/${id}`)
+                .then((res)=>{
+
+                    // setUsers(prevState => {
+                    //     return [...prevState, res.data]
+                    // })
+
+                })
+        }
+
+
+    }, [])
+
+    console.log(users)
+
+
+    
 
     if(!loaded){
 
@@ -29,6 +53,7 @@ const BonusRequest = () => {
     if(loaded && err){
         return <p>Error fetching bonus request</p>
     }
+
 
   return (
     <>
@@ -64,10 +89,14 @@ const BonusRequest = () => {
                       ): (
 
                         request.map((reques, index) => {
+                            var {id, email} = reques;
+                            var sn = (index + 1);
+
+                            fetchData(id)
                             return(
                                 <tr>
-                                    <td>1</td>
-                                    <td>isaacseun63@gmail.com</td>
+                                    <td>{sn}</td>
+                                    <td>{email}</td>
                                     <td>10000</td>
                                     <td>3150686249</td>
                                     <td>First Bank</td>

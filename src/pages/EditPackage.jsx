@@ -1,10 +1,11 @@
 import { Button, Col, message, Row } from 'antd'
 import React, { useCallback, useEffect, useState } from 'react'
 import { FaSave } from 'react-icons/fa'
-import {  useNavigate, useParams } from 'react-router-dom';
+import {  Navigate, useNavigate, useParams } from 'react-router-dom';
 import api from '../api/api';
 
 import "../assets/styles/addPacakges.css";
+import useUserContext from '../context/UserContext';
 
 const AddPackages = () => {
 
@@ -22,6 +23,12 @@ const AddPackages = () => {
     const [loaded, setLoaded] = useState(false);
     const [err, setErr] = useState(false);
     const [loading, setLoading] = useState(false)
+
+            const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const {  role } = userData || {};
 
     useEffect(()=>{
 
@@ -76,6 +83,11 @@ const AddPackages = () => {
 
 
     }, [packageDetails, navigate, id])
+
+    
+    if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account/subscriptions" replace />
+    }
 
     if(!loaded){
         return <p>Loading...</p>

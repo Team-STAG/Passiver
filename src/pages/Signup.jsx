@@ -5,8 +5,9 @@ import { Header } from '../components'
 import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
-import { Link, useSearchParams, useNavigate  } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate, Navigate  } from 'react-router-dom'
 import api from '../api/api'
+import useUserContext from '../context/UserContext'
 
 const Signup = () => {
     const [formState, setFormState] = useState(
@@ -32,6 +33,9 @@ const Signup = () => {
 
     const navigate = useNavigate();
 
+
+    const { userState} = useUserContext();
+
     useEffect(()=>{
 
         if(searchParams.has("ref") && searchParams.get("ref") !== ""){
@@ -51,22 +55,22 @@ const Signup = () => {
 
         var {name, email, password, passwordTwo, mobileNumber, terms, ref} = formState;
 
-        if (name === ""){
+        if (name.trim() === ""){
             message.error("Please enter your full name")
 
-        } if (email === "") {
+        } if (email.trim() === "") {
             message.error("Please enter your email")
 
-        } else if(mobileNumber === ""){
+        } else if(mobileNumber.trim() === ""){
             message.error("Please input your phone number")
 
-        }else if(password === ""){
+        }else if(password.trim() === ""){
             message.error("Please enter your password")
             
         }else if(password.trim().length < 8){
             message.error("Password must be 8 or more characters")
             
-        }else if(passwordTwo !== password){
+        }else if(passwordTwo.trim() !== password.trim()){
             message.error("Your password doesn't match")
             
         }else if(!terms){
@@ -126,6 +130,11 @@ const Signup = () => {
 
     }, [formState, navigate])
 
+    if (userState.isLoggedIn && userState.token !== "" && userState.userData) {
+
+        return <Navigate to="/account" />;
+    }
+
   return (
     <>      
         <Header />
@@ -171,7 +180,7 @@ const Signup = () => {
                                         setFormState(prevState => {
                                             return ({
                                                 ...prevState,
-                                                name: e.target.value.trim()
+                                                name: e.target.value
                                             })
                                         })
 
@@ -186,7 +195,7 @@ const Signup = () => {
                                         setFormState(prevState => {
                                             return({
                                                 ...prevState,
-                                                email: e.target.value.trim(),
+                                                email: e.target.value,
                                                 emailErr: ""
                                             })
                                         })
@@ -202,7 +211,7 @@ const Signup = () => {
                                         setFormState(prevState => {
                                             return({
                                                 ...prevState,
-                                                mobileNumber: e.target.value.trim(),
+                                                mobileNumber: e.target.value,
                                                 mobileNumberErr: ""
                                             })
                                         })
@@ -221,7 +230,7 @@ const Signup = () => {
                                             setFormState(prevState => {
                                                 return({
                                                     ...prevState,
-                                                    password: e.target.value.trim(),
+                                                    password: e.target.value,
                                                     passwordErr: ""
                                                 })
                                             })
@@ -250,7 +259,7 @@ const Signup = () => {
                                             setFormState(prevState => {
                                                 return({
                                                     ...prevState,
-                                                    passwordTwo: e.target.value.trim(),
+                                                    passwordTwo: e.target.value,
                                                     passwordTwoErr: ""
                                                 })
                                             })
@@ -276,7 +285,7 @@ const Signup = () => {
                                           setFormState(prevState => {
                                               return ({
                                                   ...prevState,
-                                                  ref: e.target.value.trim()
+                                                  ref: e.target.value
                                               })
                                           })
 

@@ -1,14 +1,17 @@
 import { Button, message } from 'antd'
 import React from 'react'
-import { FaBars, FaCog, FaHome, FaMoneyBillWave, FaQuestionCircle, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
+import { FaCog, FaHome, FaMoneyBillWave, FaQuestionCircle, FaShoppingBag, FaSignOutAlt, FaUsers } from 'react-icons/fa'
+import { MdClose } from 'react-icons/md'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import useUserContext from '../context/UserContext'
 
-const LoggedInNav = ({navShrinked}) => {
+const LoggedInNav = ({ navShrinked, setHeaderOpened, headerOpened }) => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { logOutUser } = useUserContext();
+    const { logOutUser, userState } = useUserContext();
+
+    const { role } = userState.userData || {};
 
   return (
     <>
@@ -19,7 +22,10 @@ const LoggedInNav = ({navShrinked}) => {
             <div className='nav-header'>
                 <Link to="/" className="logo-text">passiveeer</Link>
 
-                <Button className="shrink-nav-button"><FaBars /></Button>
+                  {headerOpened && <Button onClick={()=>{
+                      setHeaderOpened(false)
+
+                  }} className="shrink-nav-button"><MdClose /></Button>}
             </div>
 
             <div className="nav-links">
@@ -48,7 +54,7 @@ const LoggedInNav = ({navShrinked}) => {
                     
                     </li>
 
-                    <li className={location.pathname === "/account/users"? "active-link": ""}>
+                      {role.toLowerCase() === "admin" && <li className={location.pathname === "/account/users"? "active-link": ""}>
                         
                         <Link to="/account/users">
                         
@@ -57,9 +63,9 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
-                    <li className={location.pathname === "/account/vendors"? "active-link": ""}>
+                      {role.toLowerCase() === "admin" && <li className={location.pathname === "/account/vendors"? "active-link": ""}>
                         
                         <Link to="/account/vendors">
                         
@@ -68,9 +74,9 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
-                    <li className={location.pathname === "/account/packages"? "active-link": ""}>
+                      {role.toLowerCase() === "admin" && <li className={location.pathname === "/account/packages"? "active-link": ""}>
                         
                         <Link to="/account/packages">
                         
@@ -79,9 +85,9 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
-                    <li className={location.pathname === "/account/requests"? "active-link": ""}>
+                      {role.toLowerCase() === "admin" && <li className={location.pathname === "/account/requests"? "active-link": ""}>
                         
                         <Link to="/account/requests">
                         
@@ -90,9 +96,9 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
-                    <li className={location.pathname === "/account/subscriptions" && "active-link"? "active-link" : ""}>
+                      {role.toLowerCase() !== "admin" && <li className={location.pathname === "/account/subscriptions" && "active-link"? "active-link" : ""}>
                         
                         <Link to="/account/subscriptions">
                         
@@ -101,9 +107,9 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
-                    <li className={location.pathname === "/account/transactions" && "active-link"}>
+                      {role.toLowerCase() !== "admin" && <li className={location.pathname === "/account/transactions" && "active-link"}>
                         
                         <Link to="/account/transactions">
                         
@@ -112,7 +118,7 @@ const LoggedInNav = ({navShrinked}) => {
                         
                         </Link>
                     
-                    </li>
+                    </li>}
 
                     <li className={location.pathname === "/account/settings" && "active-link"}>
                         
@@ -151,6 +157,7 @@ const LoggedInNav = ({navShrinked}) => {
             </div>
 
         </div>
+
 
     </>
   )

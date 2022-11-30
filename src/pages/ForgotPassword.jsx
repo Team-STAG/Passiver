@@ -90,7 +90,7 @@ const ForgotPassword = () => {
                                         setFormState(prevState => {
                                             return({
                                                 ...prevState,
-                                                email: e.target.value.trim(),
+                                                email: e.target.value,
                                                 emailErr: ""
                                             })
                                         })

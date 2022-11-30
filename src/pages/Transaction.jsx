@@ -3,6 +3,7 @@ import { Row } from 'antd'
 
 import "../assets/styles/subscription.css"
 import api from '../api/api'
+import { formatDate, formatPrice } from '../function/functions'
 
 const Transaction = () => {
 
@@ -48,7 +49,7 @@ const Transaction = () => {
             {/* <Link to="/account/packages" className='button'>Packages</Link> */}
         </Row>
 
-        <Row justify="center" className="subscription-content">
+        <Row justify="center" className="subscription-content overflow-table">
 
             <table>
 
@@ -85,8 +86,8 @@ const Transaction = () => {
                                 <tr key={index}>
                                     <td>{sn}</td>
                                     <td>Made {title}</td>
-                                    <td>{date}</td>
-                                    <td>{amount}</td>
+                                    <td>{formatDate(date)}</td>
+                                    <td>{formatPrice(parseInt(amount))}</td>
                                     {/* <td>
                                         <span className='status pending'>In Progress</span>
                                     </td> */}

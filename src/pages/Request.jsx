@@ -1,10 +1,19 @@
 import { Row } from 'antd'
 import React from 'react'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Navigate, Outlet } from 'react-router-dom'
 
 import "../assets/styles/request.css";
+import useUserContext from '../context/UserContext';
 
 const Request = () => {
+  const { userState } = useUserContext();
+
+  const { userData } = userState;
+
+  const {  role } = userData || {};
+  if (role.toLowerCase() !== "admin") {
+    return <Navigate to="/account" replace />
+  }
   return (
     <>
 

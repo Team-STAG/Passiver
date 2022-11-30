@@ -60,6 +60,7 @@ a {
   height: 100%;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 .users .user-container .navbar {
   width: 350px;
@@ -124,6 +125,17 @@ a {
   background: #B92BB3;
   color: white;
 }
+.users .user-container .mobile-nav {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  left: "-350px";
+  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -ms-transition: 0.5s ease all;
+  -o-transition: 0.5s ease all;
+}
 .users .user-container .main-content {
   width: calc(100% - 350px);
   height: 100%;
@@ -180,4 +192,31 @@ a {
 }
 .users .user-container .main-content .main-content-outlet::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width: 1212px) {
+  .users .user-container .navbar {
+    display: none;
+  }
+  .users .user-container .mobile-nav {
+    display: block;
+  }
+  .users .user-container .main-content {
+    width: 100%;
+  }
+  .users .user-container .main-content .main-content-header .logged-in-header button.mobile-btn {
+    display: block;
+  }
+}
+
+.overflow-table {
+  overflow-x: scroll;
+}
+.overflow-table::-webkit-scrollbar {
+  height: 6px;
+}
+.overflow-table::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.5);
+}
+.overflow-table table {
+  min-width: 650px;
 }/*# sourceMappingURL=user.css.map */

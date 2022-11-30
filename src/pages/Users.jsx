@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {  Outlet, useNavigate} from 'react-router-dom'
 import { LoggedInHeader, LoggedInNav } from '../components'
 
@@ -11,11 +11,18 @@ const Users = () => {
 
   const [navShrinked, setNavShrink] = useState(false)
   const { userState, addUserDetails } = useUserContext();
+  const [headerOpened, setHederOpened] = useState(false)
   const navigate = useNavigate();
 
   console.log(userState);
 
-  if(!userState.isLoggedIn){
+  useEffect(()=>{
+
+    setHederOpened(false)
+
+  },[navigate])
+
+  if(!userState.isLoggedIn || userState.token === "" || !userState.userData){
 
     api.get("/auth/me")
 
@@ -46,11 +53,17 @@ const Users = () => {
             <LoggedInNav navShrinked={navShrinked} setNavShrink={setNavShrink}/>
 
           </div>
+
+          <div className='navbar mobile-nav' style={{left: headerOpened? "0px" : "-350px"}}>
+
+            <LoggedInNav setHeaderOpened={setHederOpened} headerOpened={headerOpened} navShrinked={navShrinked} setNavShrink={setNavShrink} />
+
+          </div>
           <div className='main-content'>
 
             <div className='main-content-header'>
 
-              <LoggedInHeader />
+              <LoggedInHeader headerAction={setHederOpened} />
               
             </div>
 

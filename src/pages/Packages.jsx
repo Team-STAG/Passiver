@@ -1,10 +1,12 @@
 import { Button, message, Row } from 'antd'
 import React, { useCallback, useEffect, useState } from 'react'
 import {FaPen, FaPlus, FaTrash} from "react-icons/fa"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 
 import "../assets/styles/packages.css";
+import useUserContext from '../context/UserContext';
+import { formatDate, formatPrice } from '../function/functions';
 
 const Packages = () => {
 
@@ -12,6 +14,12 @@ const Packages = () => {
   const [packagesList, setPackages] = useState([])
   const [loaded, setLoaded] = useState(false)
   const [err, setErr] = useState(false);
+
+          const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const {  role } = userData || {};
 
   useEffect(()=>{
 
@@ -54,6 +62,11 @@ const Packages = () => {
 
   }, [packagesList])
 
+  
+    if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account/subscriptions" replace />
+    }
+
   if(!loaded){
     return <p>Loading...</p>
   }
@@ -74,7 +87,7 @@ const Packages = () => {
       </Row>
 
 
-      <Row justify="center" className="package-table package-content">
+      <Row justify="center" className="package-table package-content  overflow-table">
         <table>
           <thead>
             <tr>
@@ -95,8 +108,6 @@ const Packages = () => {
               </tr>
             ): (
                 packagesList.map((packageD, index) => {
-
-                  console.log(packageD);
                   var {id, name, price, vendorFee, dailyRate, createdAt} = packageD
                   var sn = (index + 1)
                 return(
@@ -104,10 +115,10 @@ const Packages = () => {
                   <tr key={index}>
                     <td>{sn}</td>
                     <td>{name}</td>
-                    <td>{price}</td>
-                    <td>{vendorFee}</td>
+                    <td>{formatPrice(parseInt(price))}</td>
+                    <td>{formatPrice(parseInt(vendorFee))}</td>
                     <td>{dailyRate}%</td>
-                    <td>{createdAt}</td>
+                    <td>{formatDate(createdAt)}</td>
                     <td>
                       
                       <div className="action-btn">

@@ -31,7 +31,7 @@ const Login = () => {
 
         var {email, password} = formState
 
-        if(email !== "" && password !== ""){
+        if(email.trim() !== "" && password.trim() !== ""){
 
             var data = {
                 username: email,
@@ -138,7 +138,7 @@ const Login = () => {
                                         setFormState(prevState => {
                                             return({
                                                 ...prevState,
-                                                email: e.target.value.trim(),
+                                                email: e.target.value,
                                                 emailErr: ""
                                             })
                                         })
@@ -157,7 +157,7 @@ const Login = () => {
                                             setFormState(prevState => {
                                                 return({
                                                     ...prevState,
-                                                    password: e.target.value.trim(),
+                                                    password: e.target.value,
                                                     passwordErr: ""
                                                 })
                                             })

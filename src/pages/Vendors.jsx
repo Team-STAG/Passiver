@@ -1,14 +1,22 @@
 import { Button, message, Row } from 'antd'
 import React, { useCallback, useEffect, useState } from 'react'
 import {FaPen, FaPlus, FaTrash} from "react-icons/fa"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import api from '../api/api';
 
 import "../assets/styles/packages.css";
+import useUserContext from '../context/UserContext';
+import { formatDate } from '../function/functions';
 
 
 const Vendors = () => {
   const navigate = useNavigate();
+
+      const {userState} = useUserContext();
+
+    const { userData } = userState;
+
+    const { role } = userData || {};
 
   const [vendors, setVendors] = useState([]);
   const [loadingErr, setLoadingErr] = useState(false)
@@ -54,6 +62,10 @@ const Vendors = () => {
 
   }, [vendors])
 
+  if(role.toLowerCase() !== "admin"){
+        return <Navigate to="/account" replace />
+    }
+
   if(!loaded){
     return <p>Loading...</p>
   }
@@ -75,7 +87,7 @@ const Vendors = () => {
           </Row>
     
     
-          <Row justify="center" className="package-table package-content">
+          <Row justify="center" className="package-table package-content  overflow-table">
             <table>
               <thead>
                 
@@ -103,7 +115,7 @@ const Vendors = () => {
                           <tr>
                           <td>{sn}</td>
                           <td>{phoneNumber}</td>
-                          <td>{createdAt}</td>
+                          <td>{formatDate(createdAt)}</td>
                           <td>
                               
                               <div className="action-btn">

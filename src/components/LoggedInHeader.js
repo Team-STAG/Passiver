@@ -3,7 +3,7 @@ import React from 'react'
 import { FaBars, FaBell, FaUserCircle } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
 
-const LoggedInHeader = () => {
+const LoggedInHeader = ({headerAction}) => {
     const navigate = useNavigate();
   return (
     <>
@@ -12,7 +12,9 @@ const LoggedInHeader = () => {
 
             <div className='mobile-btn-content'>
 
-                <Button className='mobile-btn'><FaBars /></Button>
+                <Button className='mobile-btn' onClick={()=>{
+                      headerAction(prevState => !prevState)
+                }}><FaBars /></Button>
 
             </div>
 
