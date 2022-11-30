@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import {  Outlet, useNavigate} from 'react-router-dom'
 import { LoggedInHeader, LoggedInNav } from '../components'
 
@@ -6,15 +6,16 @@ import { LoggedInHeader, LoggedInNav } from '../components'
 import "../assets/styles/user.css"
 import useUserContext from '../context/UserContext'
 import api from '../api/api'
+import { Row } from 'antd'
 
 const Users = () => {
 
   const [navShrinked, setNavShrink] = useState(false)
-  const { userState, addUserDetails } = useUserContext();
+  const { userState, addUserDetails, logOutUser } = useUserContext();
   const [headerOpened, setHederOpened] = useState(false)
+  const [newtworkErr, setNetworkErr] = useState(false)
   const navigate = useNavigate();
 
-  console.log(userState);
 
   useEffect(()=>{
 
@@ -22,7 +23,7 @@ const Users = () => {
 
   },[navigate])
 
-  if(!userState.isLoggedIn || userState.token === "" || !userState.userData){
+  const fetchUserDetails = useCallback(() => {
 
     api.get("/auth/me")
 
@@ -32,13 +33,41 @@ const Users = () => {
 
       }).catch(err => {
 
-        console.log(err)
 
-        navigate("/login");
+        if (err.message.toLowerCase() === "network error") {
+          
+          setNetworkErr(true)
 
-        
+        }else{
+
+          logOutUser();
+          window.location.href = window.location.origin + "/login";
+        }
+
+
+
       })
+
+  }, [addUserDetails, logOutUser])
+
+  useEffect(()=>{
+
+    if(localStorage.getItem("user_token")){
+  
+      fetchUserDetails()
+  
+      
+    }else{
+      window.location.href = window.location.origin + "/login";
+    }
+  }, [fetchUserDetails])
+
+  if (newtworkErr){
+    return <Row justify="center" style={{height: "100vh", alignItems: "center"}}>
+      <h1 style={{ width: "90%", fontWeight: "bold", textAlign: "center" }}><span style={{color: "red"}}>You seems to be offline!</span> <br /> Please make sure you're connected to the internet and refresh the web page</h1>
+    </Row>
   }
+
 
   return (
     <>

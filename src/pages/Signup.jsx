@@ -5,7 +5,7 @@ import { Header } from '../components'
 import "../assets/styles/login.css"
 import LoginBanner from "../assets/images/Nigerian-naira-1.png"
 import { FaEye, FaEyeSlash, FaSignInAlt } from 'react-icons/fa'
-import { Link, useSearchParams, useNavigate, Navigate  } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate} from 'react-router-dom'
 import api from '../api/api'
 import useUserContext from '../context/UserContext'
 
@@ -130,9 +130,11 @@ const Signup = () => {
 
     }, [formState, navigate])
 
-    if (userState.isLoggedIn && userState.token !== "" && userState.userData) {
+    if (userState.token !== "") {
 
-        return <Navigate to="/account" />;
+
+        window.location.href = "" + window.location.origin + "/account";
+
     }
 
   return (

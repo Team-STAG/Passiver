@@ -49,7 +49,7 @@ export const UserProvider = ({children}) => {
 
       return new Promise(async (resolve, reject) => {
         
-        
+        localStorage.removeItem("user_token");
         if (localStorage.getItem("user_token")){
 
           await localStorage.removeItem("user_token");
