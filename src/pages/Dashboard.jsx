@@ -167,9 +167,9 @@ const Dashboard = () => {
 
               title: "Passivers referral link",
 
-              url: `https://passiveeer.com/signup?ref=${referalCode}`,
+              url: `${window.location.origin}/signup?ref=${referalCode}`
 
-              text:  `https://passiveeer.com/signup?ref=${referalCode}`
+
 
             })
 
@@ -200,7 +200,7 @@ const Dashboard = () => {
 
             <h3>Referral Link</h3>
 
-            <p>https://passiveeer.com/signup?ref={referalCode}</p>
+            <p>{window.location.origin}/signup?ref={referalCode}</p>
 
           </div>
 
