@@ -1,4 +1,4 @@
 const baseUrl = "",
-    textUrl = "https://passiveeers.onrender.com/";
+    textUrl = "https://passiveers-dev.onrender.com/";
 
 export {textUrl, baseUrl}
