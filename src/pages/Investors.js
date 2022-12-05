@@ -79,7 +79,7 @@ const Investors = () => {
             
         </Row>
 
-        <Row justify="center" className="investors-table investor-content overflow-table">
+        <Row className="investors-table investor-content overflow-table">
             <table>
 
                 <thead>

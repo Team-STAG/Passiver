@@ -87,7 +87,7 @@ const Packages = () => {
       </Row>
 
 
-      <Row justify="center" className="package-table package-content  overflow-table">
+      <Row className="package-table package-content  overflow-table">
         <table>
           <thead>
             <tr>

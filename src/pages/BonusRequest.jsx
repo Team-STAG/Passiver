@@ -140,7 +140,7 @@ const BonusRequest = () => {
 
         </Row>
 
-        <Row justify="center" className='request-table request-content'>
+        <Row className='request-table request-content'>
 
             <table>
 
