@@ -172,7 +172,7 @@ const BonusRequest = () => {
                                     <td>{email}</td>
                                     <td>
                                         <div className='action-btn'>
-                                            <Button className="edit-button">Approve</Button>
+                                            
                                             <Button className="view-button" onClick={()=>{
 
                                                 setUserDetails(id)
