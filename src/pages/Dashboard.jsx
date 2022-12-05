@@ -30,30 +30,31 @@ const Dashboard = () => {
 
       
     })
-    api.post("/bonus/request", {ids})
-    .then(res => {
-      message.success("Bonus request processed");
-      // console.log(res)
-      var data = {
-        ...userData,
-        ...res.data[1]
-      }
-      addUserDetails(data);
-    }).catch(err => {
-      
-      console.log(err);
 
-      var {data} = err.response
-
-      if(data.message){
-
-        message.error(data.message)
-      }else{
-        message.error("Unable to process bonus withdrawal request")
-      }
-    })
     if (accountDetails){
-
+      
+      api.post("/bonus/request", {ids})
+      .then(res => {
+        message.success("Bonus request processed");
+        // console.log(res)
+        var data = {
+          ...userData,
+          ...res.data[1]
+        }
+        addUserDetails(data);
+      }).catch(err => {
+        
+        console.log(err);
+  
+        var {data} = err.response
+  
+        if(data.message){
+  
+          message.error(data.message)
+        }else{
+          message.error("Unable to process bonus withdrawal request")
+        }
+      })
 
 
     }else{

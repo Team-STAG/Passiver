@@ -7,10 +7,12 @@ const Modal = ({opened, children, style}) => {
     height: "100vh",
     position: "fixed",
     background: "rgba(0, 0, 0, .5)",
-    zIndex: 9999,
+    zIndex: 999,
     display: "none",
     opacity: 0,
-    transition: "0.5s ease all"
+    transition: "0.5s ease all",
+    top: "0px",
+    left: "0px"
   })
 
   useEffect(()=>{
