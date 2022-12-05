@@ -138,7 +138,7 @@ const Dashboard = () => {
 
           </div>
 
-          {!requestBonusWithdrawal && <Button style={{color: "green", fontSize: "17px"}} onClick={processBonusRequest}><FaMoneyBill /></Button>}
+          {!requestBonusWithdrawal && parseInt(bonusBalance) !== 0 && <Button style={{color: "green", fontSize: "17px"}} onClick={processBonusRequest}><FaMoneyBill /></Button>}
 
           <p className='subtitle'><span className='special'>*</span> Refer and earn 35% of your referral's subscription</p>
 

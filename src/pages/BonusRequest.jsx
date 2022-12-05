@@ -6,6 +6,8 @@ const BonusRequest = () => {
     const [loaded, setLoaded] = useState(false)
     const [err, setErr] = useState(false);
     const [request, setRequest] = useState([]);
+    const [modalOpened, setModalOpened] = useState(false)
+    const [userDetails, setUserDetails] = useState("");
 
     useEffect(()=>{
 
@@ -21,6 +23,18 @@ const BonusRequest = () => {
 
 
     }, [])
+
+    useEffect(()=>{
+
+        if(userDetails !== ""){
+
+            setModalOpened(true)
+
+        }else{
+            setModalOpened(false)
+        }
+
+    }, [userDetails])
 
 
     
@@ -52,10 +66,6 @@ const BonusRequest = () => {
                     <tr>
                         <td>S/N</td>
                         <td>Email</td>
-                        <td>Amount (&#8358;)</td>
-                        <td>Account Name</td>
-                        <td>Bank Name</td>
-                        <td>Account Name</td>
                         <td>Actions</td>
                     </tr>
                 </thead>
@@ -71,18 +81,17 @@ const BonusRequest = () => {
                         request.map((reques, index) => {
                             var { email} = reques;
                             var sn = (index + 1);
+
                             return(
                                 <tr>
                                     <td>{sn}</td>
                                     <td>{email}</td>
-                                    <td>10000</td>
-                                    <td>3150686249</td>
-                                    <td>First Bank</td>
-                                    <td>Omonimewa Isaac Duyilemi</td>
                                     <td>
                                         <div className='action-btn'>
                                             <Button className="edit-button">Approve</Button>
-                                            <Button className="delete-button">Decline</Button>
+                                            <Button className="view-button" onClick={()=>{
+
+                                            }}>View details</Button>
                                         </div>
                                     </td>
                                 </tr>
