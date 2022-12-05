@@ -175,6 +175,7 @@ a {
   font-weight: bold;
   font-size: 1.5rem;
   border: none;
+  z-index: 9;
 }
 .user-details-modal-content .close-btn:hover {
   color: red;
