@@ -155,6 +155,17 @@ a {
 .dashboard-content .dashboard-referral .referral-action .referral-link-copy:hover, .dashboard-content .dashboard-referral .referral-action .referral-link-copy:focus {
   border: none;
 }
+.dashboard-content .instruction-container {
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dashboard-content .instruction-container .instruction-header {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.dashboard-content .instruction-container ul {
+  margin-left: 20px;
+}
 @media only screen and (max-width: 575px) {
   .dashboard-content .dashboard-title {
     text-align: center;

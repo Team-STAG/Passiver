@@ -114,6 +114,24 @@ const Dashboard = () => {
 
       </Row>
 
+      <Row justify="space-between" className="dashboard-content">
+        
+        <Col span={24} className="dashboard-referral instruction-container">
+
+          <h2 className="instruction-header">Please Note</h2>
+
+          <ul>
+
+            <li>Minimum Withdrawal is &#8358;1,000</li>
+            <li>There will be 5% charges on each transactions</li>
+            <li>Withdrawal are processed from 9 AM till 9 PM</li>
+
+          </ul>
+
+        </Col>
+
+      </Row>
+
       <Row justify="space-between" className='dashboard-content'>
 
         <Col span={7} lg={{span: 7}} md={{span: 7}} xs={{span: 24}} className="dashboard-cards">
@@ -139,7 +157,7 @@ const Dashboard = () => {
 
           </div>
 
-          {!requestBonusWithdrawal && parseInt(bonusBalance) !== 0 && <Button style={{color: "green", fontSize: "17px"}} onClick={processBonusRequest}><FaMoneyBill /></Button>}
+          {!requestBonusWithdrawal && parseInt(bonusBalance) >= 1000 && <Button style={{color: "green", fontSize: "17px"}} onClick={processBonusRequest}><FaMoneyBill /></Button>}
 
           <p className='subtitle'><span className='special'>*</span> Refer and earn 35% of your referral's subscription</p>
 

@@ -139,6 +139,21 @@
         }
     }
 
+    .instruction-container{
+        flex-direction: column;
+        align-items: flex-start;
+
+        .instruction-header{
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        ul{
+            margin-left: 20px;
+        }
+
+    }
+
     @media only screen and (max-width: 
     575px){
 
