@@ -1,10 +1,11 @@
-import { Button, Row } from 'antd'
-import React from 'react'
+import { Row, message } from 'antd'
+import React, { useCallback } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 
 import "../assets/styles/subscription.css"
 import useUserContext from '../context/UserContext'
 import { formatDate, formatPrice } from '../function/functions'
+import api from '../api/api'
 
 const Subscription = () => {
     const {userState} = useUserContext();
@@ -13,7 +14,21 @@ const Subscription = () => {
 
     const { investments, role } = userData || {};
 
-    console.log(role)
+    const processWithdrawal = useCallback((id)=>{
+
+        return new Promise((resolve, reject)=>{
+
+            api.post(`/investment/request-yield/${id}`)
+                .then(res => {
+                    resolve(res);
+
+                }).catch((err)=>{
+                    reject(err);
+                })
+
+        })
+
+    }, [])
 
     if(role.toLowerCase() === "admin"){
         return <Navigate to="/account/packages" replace />
@@ -51,7 +66,7 @@ const Subscription = () => {
 
                         investments.map((investment, index)=>{
 
-                            var { status, createdAt } = investment
+                            var { status, createdAt, id } = investment
                             var { name, price, maxRate } = investment?.package
                             var sn = (index + 1);
                             var profit = parseInt((parseInt(maxRate) / 100) * price);
@@ -66,7 +81,20 @@ const Subscription = () => {
                                     <td>{formatDate(createdAt)}</td>
                                     <td>{status}</td>
                                     <td>
-                                        <Button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'>WithDraw</Button>
+                                        <button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'
+                                        onClick={(e)=>{
+                                            e.target.setAttribute("disabled", "true");
+                                            processWithdrawal(id).then((res)=>{
+                                                console.log(res);
+                                                message.success("Withdrawal Processed Successfully");
+
+
+                                            }).catch((err)=>{
+                                                console.log(err)
+                                                message.error("Unable to process withdrawal! Please try again later")
+                                            })
+
+                                        }}>WithDraw</button>
                                     </td>
                                 </tr>
                                 

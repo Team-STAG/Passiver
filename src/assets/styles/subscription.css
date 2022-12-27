@@ -90,6 +90,8 @@ a {
   background: #B92BB3;
   color: white;
   border: none;
+  padding: 10px 20px;
+  outline: none;
 }
 .subscription-content table tbody tr td .withdraw-button:disabled {
   background: rgba(0, 0, 0, 0.1);
