@@ -37,7 +37,6 @@ const BonusRequest = () => {
         if(id){
 
             api.get(`/admin/user/${id}`).then(res => {
-                // console.log(res.data)
                 setDetails(res.data)
             })
             .catch((err)=>{
@@ -164,7 +163,6 @@ const BonusRequest = () => {
                             var { email, id} = reques;
                             var sn = (index + 1);
 
-                            // console.log(request)
 
                             return(
                                 <tr>

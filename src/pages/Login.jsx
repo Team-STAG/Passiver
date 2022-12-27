@@ -88,8 +88,6 @@ const Login = () => {
 
     }, [formState, addUserDetails])
 
-    console.log(userState)
-
     if (userState.token !== ""){
 
 

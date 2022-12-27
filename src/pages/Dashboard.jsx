@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const processBonusRequest = useCallback(() => {
 
-    var ids = bonuses.map(bonus => {
+    var ids = bonuses.filter(bonus => bonus.status.toLowerCase() === "unclaimed").map(bonus => {
       var {id} = bonus
 
       return(
