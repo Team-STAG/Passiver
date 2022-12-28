@@ -20,7 +20,7 @@ const Request = () => {
         <Row justify="space-between" className="request-content request-header-link">
             <Link className="button" to="/account/requests/bonus">Bonus</Link>
             <Link className="button" to="/account/requests/withdrawal">Withdrawal</Link>
-            <Link className="button" to="/account/requests/investment">Investment</Link>
+            {/* <Link className="button" to="/account/requests/investment">Investment</Link> */}
         </Row>
 
         <Outlet />

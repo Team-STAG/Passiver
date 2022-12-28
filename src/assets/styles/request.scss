@@ -90,6 +90,7 @@
                                 background: getColor("primary");
                                 color: white;
                                 border: 2px solid getColor("primary");
+                                padding: 10px 20px;
 
                                 &:hover{
                                     background: transparent;
@@ -150,7 +151,15 @@
         }
     }
 
+    .withdrawal-request-table{
+        min-width: 1200px;
+    }
+
     
+}
+
+.request-table{
+    overflow-x: scroll;
 }
 
 .request-header-link{

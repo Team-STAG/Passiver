@@ -65,6 +65,7 @@ const Subscription = () => {
                       {investments.length > 0? (
 
                         investments.map((investment, index)=>{
+                            console.log(investment)
 
                             var { status, createdAt, id } = investment
                             var { name, price, maxRate } = investment?.package
@@ -92,9 +93,11 @@ const Subscription = () => {
                                             }).catch((err)=>{
                                                 console.log(err)
                                                 message.error("Unable to process withdrawal! Please try again later")
+                                                e.target.removeAttribute("disabled");
                                             })
 
                                         }}>WithDraw</button>
+
                                     </td>
                                 </tr>
                                 

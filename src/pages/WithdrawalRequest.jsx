@@ -1,5 +1,5 @@
-import { Button, Row } from 'antd'
-import React, { useEffect, useState } from 'react'
+import { Button, Row, message } from 'antd'
+import React, { useCallback, useEffect, useState } from 'react'
 import api from '../api/api';
 
 const WithdrawalRequest = () => {
@@ -9,7 +9,7 @@ const WithdrawalRequest = () => {
 
     useEffect(() => {
 
-        api.get('/admin/bonus/request')
+        api.get('/admin/investments/pending')
             .then(res => {
                 setRequest(res.data);
             }).catch(err => {
@@ -18,6 +18,25 @@ const WithdrawalRequest = () => {
             }).finally(() => {
                 setLoaded(true)
             })
+
+    }, [])
+
+    console.log(request)
+
+    const approveWithdraw = useCallback((id)=>{
+
+        return new Promise((resolve, reject) => {
+
+            api.patch(`/admin/investments/${id}/approve`)
+            .then(res => {
+                resolve(res)
+
+            }).catch(err => {
+                reject(err)
+
+            })
+
+        });
 
     }, [])
 
@@ -39,15 +58,16 @@ const WithdrawalRequest = () => {
 
             </Row>
 
-            <Row justify="center" className='request-table request-content'>
+            <Row justify="start" className='request-table request-content'>
 
-                <table>
+                <table className="withdrawal-request-table">
 
                     <thead>
                         <tr>
                             <td>S/N</td>
                             <td>Email</td>
-                            <td>Amount (&#8358;)</td>
+                            <td>Price (&#8358;)</td>
+                            <td>Returns (&#8358;)</td>
                             <td>Account Name</td>
                             <td>Bank Name</td>
                             <td>Account Name</td>
@@ -63,19 +83,38 @@ const WithdrawalRequest = () => {
                             </tr>
                         ) : (
 
-                            request.map((reques, index) => {
+                            request.map((requestDetails, index) => {
+                                var {id, package: packageDetails, user} = requestDetails;
+                                var {maxRate, price} = packageDetails;
+                                var { email, accountDetails } = user;
+                                var { accountNo, bank, name } = accountDetails;
+
+                                var investmentReturn = (parseInt(maxRate) / 100) * price;
+
+                                var sn = (index + 1)
+
                                 return (
-                                    <tr>
-                                        <td>1</td>
-                                        <td>isaacseun63@gmail.com</td>
-                                        <td>10000</td>
-                                        <td>3150686249</td>
-                                        <td>First Bank</td>
-                                        <td>Omonimewa Isaac Duyilemi</td>
+                                    <tr key={index}>
+                                        <td>{sn}</td>
+                                        <td>{email}</td>
+                                        <td>{price}</td>
+                                        <td>{investmentReturn}</td>
+                                        <td>{accountNo}</td>
+                                        <td>{bank}</td>
+                                        <td>{name}</td>
                                         <td>
                                             <div className='action-btn'>
-                                                <Button className="edit-button">Approve</Button>
-                                                <Button className="delete-button">Decline</Button>
+                                                <button className="edit-button" onClick={(e)=>{
+                                                    e.target.setAttribute("disabled", "true");
+                                                    approveWithdraw(id).then(res => {
+                                                        message.success("Request approved successfully");
+
+                                                    }).catch((res)=>{
+                                                        message.error("Unable to approve withdrawal request")
+                                                        e.target.removeAttribute("disabled");
+                                                    })
+                                                    
+                                                }}>Approve</button>
                                             </div>
                                         </td>
                                     </tr>

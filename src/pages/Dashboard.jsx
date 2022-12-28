@@ -16,6 +16,7 @@ const Dashboard = () => {
   const {userData} = userState;
 
   const { userBalance, bonusBalance, name, investments, referalCode, bonuses, accountDetails, requestBonusWithdrawal } = userData || {};
+  console.log(userData)
 
 
   const processBonusRequest = useCallback(() => {
