@@ -1,0 +1,120 @@
+@font-face {
+  font-family: pacifico;
+  src: url("../fonts/Pacifico-Regular.ttf");
+}
+@font-face {
+  font-family: lora;
+  src: url("../fonts/Lora-Regular.ttf");
+}
+@font-face {
+  font-family: lora-bold;
+  src: url("../fonts/Lora-Bold.ttf");
+}
+@font-face {
+  font-family: lora-semibold;
+  src: url("../fonts/Lora-SemiBold.ttf");
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.full-width {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 9px 20px;
+  cursor: pointer;
+}
+
+.add-vendor-content {
+  width: 100%;
+}
+.add-vendor-content:not(:first-child) {
+  margin-top: 40px;
+}
+.add-vendor-content h1 {
+  font-size: 1.5rem;
+}
+.add-vendor-content .form {
+  width: 100%;
+}
+.add-vendor-content .form .form-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+.add-vendor-content .form .form-content:not(:first-child) {
+  margin-top: 25px;
+}
+.add-vendor-content .form .form-content input {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  outline: none;
+  border: 3px solid rgba(0, 0, 0, 0.3);
+  padding: 0px 15px;
+  margin-top: 20px;
+}
+.add-vendor-content .form .form-content input:focus {
+  border: 3px solid rgba(0, 0, 0, 0.6);
+}
+.add-vendor-content .form .form-content .submit-btn {
+  width: auto;
+  height: auto;
+  padding: 10px 20px;
+  background: #B92BB3;
+  color: white;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 3px solid #B92BB3;
+}
+.add-vendor-content .form .form-content .submit-btn:hover {
+  background: transparent;
+  color: #B92BB3;
+  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -ms-transition: 0.5s ease all;
+  -o-transition: 0.5s ease all;
+}/*# sourceMappingURL=addVendors.css.map */
