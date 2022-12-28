@@ -82,21 +82,29 @@ const Subscription = () => {
                                     <td>{formatDate(createdAt)}</td>
                                     <td>{status}</td>
                                     <td>
-                                        <button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'
-                                        onClick={(e)=>{
-                                            e.target.setAttribute("disabled", "true");
-                                            processWithdrawal(id).then((res)=>{
-                                                console.log(res);
-                                                message.success("Withdrawal Processed Successfully");
 
+                                        {status.toLowerCase() !== "paid"? (
+                                            <button disabled={status && (status.toLowerCase() !== "started" && status.toLowerCase() !== "pending" && status.toLowerCase() !== "requested")? false : true} className='withdraw-button'
+                                            onClick={(e)=>{
+                                                e.target.setAttribute("disabled", "true");
+                                                processWithdrawal(id).then((res)=>{
+                                                    console.log(res);
+                                                    message.success("Withdrawal Processed Successfully");
+    
+    
+                                                }).catch((err)=>{
+                                                    console.log(err)
+                                                    message.error("Unable to process withdrawal! Please try again later")
+                                                    e.target.removeAttribute("disabled");
+                                                })
+    
+                                            }}>WithDraw</button>
 
-                                            }).catch((err)=>{
-                                                console.log(err)
-                                                message.error("Unable to process withdrawal! Please try again later")
-                                                e.target.removeAttribute("disabled");
-                                            })
-
-                                        }}>WithDraw</button>
+                                        ): (
+                                            <span className="flex-container full-width">
+                                                -
+                                            </span>
+                                        )}
 
                                     </td>
                                 </tr>
